@@ -1,0 +1,15 @@
+===
+see tag: url
+===
+
+/**
+ * @see <a href="http://example.com/">example</a>
+ */
+
+---
+
+(document
+  (see_tag
+    (tag_name)
+    (url_title
+      (description))))

@@ -1,0 +1,28 @@
+===
+since tag
+===
+
+/**
+ * @since My Special 1.0
+ */
+
+---
+
+(document
+  (since_tag
+    (tag_name)
+    (description)))
+
+===
+since tag: missing description
+===
+
+/**
+ * @since
+ */
+
+---
+
+(document
+  (since_tag
+    (tag_name)))

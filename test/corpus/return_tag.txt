@@ -1,0 +1,76 @@
+===
+return tag
+===
+
+/**
+ * @return My retval
+ */
+
+---
+
+(document
+  (return_tag
+    (tag_name)
+    (description)))
+
+===
+return tag: inline
+===
+
+/**
+ * {@return My retval}
+ */
+
+---
+
+(document
+  (description
+    (return_tag
+      (tag_name)
+      (description))))
+
+===
+return tag: missing description
+===
+
+/**
+ * @return
+ */
+
+---
+
+(document
+  (return_tag
+    (tag_name)))
+
+===
+return tag: inline, missing description
+===
+
+/**
+ * {@return}
+ */
+
+---
+
+(document
+  (description
+    (return_tag
+      (tag_name))))
+
+===
+return tag: inheritdoc
+===
+
+/**
+ * @return {@inheritDoc}
+ */
+
+---
+
+(document
+  (return_tag
+    (tag_name)
+    (description
+      (inherit_doc_tag
+        (tag_name)))))

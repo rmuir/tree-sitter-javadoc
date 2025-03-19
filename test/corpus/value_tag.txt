@@ -1,0 +1,90 @@
+===
+value tag
+===
+
+/**
+ * {@value}
+ */
+
+---
+
+(document
+  (description
+    (value_tag
+      (tag_name))))
+
+===
+value tag: reference
+===
+
+/**
+ * {@value #FOO_BAR}
+ */
+
+---
+
+(document
+  (description
+    (value_tag
+      (tag_name)
+      (reference
+        (member
+          (identifier))))))
+
+===
+value tag: qualified reference
+===
+
+/**
+ * {@value Foo#FOO_BAR}
+ */
+
+---
+
+(document
+  (description
+    (value_tag
+      (tag_name)
+      (reference
+        (type
+          (identifier))
+        (member
+          (identifier))))))
+
+===
+value tag: format string
+===
+
+/**
+ * {@value "s%2f" #FOO_BAR}
+ */
+
+---
+
+(document
+  (description
+    (value_tag
+      (tag_name)
+      (literal_format_string)
+      (reference
+        (member
+          (identifier))))))
+
+===
+value tag: bare format string
+===
+
+/**
+ * {@value %2f #FOO_BAR}
+ */
+
+---
+
+(document
+  (description
+    (value_tag
+      (tag_name)
+      (bare_format_string)
+      (reference
+        (member
+          (identifier))))))

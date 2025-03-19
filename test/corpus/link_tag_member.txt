@@ -1,0 +1,73 @@
+===
+link tag: member + label
+===
+
+/**
+ * {@link #member label}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (identifier)))
+      (description))))
+
+===
+link tag: member
+===
+
+/**
+ * {@link #member}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (identifier))))))
+
+===
+link tag: member + label: without hash
+===
+
+/**
+ * {@link member label}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (identifier)))
+      (description))))
+
+===
+link tag: member: without hash
+===
+
+/**
+ * {@link member}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (identifier))))))

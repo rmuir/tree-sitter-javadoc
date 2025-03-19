@@ -1,0 +1,28 @@
+===
+author tag
+===
+
+/**
+ * @author test
+ */
+
+---
+
+(document
+  (author_tag
+    (tag_name)
+    (description)))
+
+===
+author tag: missing description
+===
+
+/**
+ * @author
+ */
+
+---
+
+(document
+  (author_tag
+    (tag_name)))

@@ -1,0 +1,31 @@
+===
+code tag
+===
+
+/**
+ * {@code test}
+ */
+
+---
+
+(document
+  (description
+    (code_tag
+      (tag_name)
+      (code))))
+
+===
+code tag: without any code
+===
+
+/**
+ * {@code}
+ */
+
+---
+
+(document
+  (description
+    (code_tag
+      (tag_name))))
+   

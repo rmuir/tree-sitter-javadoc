@@ -1,0 +1,49 @@
+===
+inheritDoc tag
+===
+
+/**
+ * {@inheritDoc}
+ */
+
+---
+
+(document
+  (description
+    (inherit_doc_tag
+      (tag_name))))
+
+===
+inheritDoc tag: supertype
+===
+
+/**
+ * {@inheritDoc Type}
+ */
+
+---
+
+(document
+  (description
+    (inherit_doc_tag
+      (tag_name)
+      (type
+        (identifier)))))
+
+===
+inheritDoc tag: qualified supertype
+===
+
+/**
+ * {@inheritDoc foo.Type}
+ */
+
+---
+
+(document
+  (description
+    (inherit_doc_tag
+      (tag_name)
+      (type
+        (identifier)
+        (identifier)))))

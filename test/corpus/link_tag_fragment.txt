@@ -1,0 +1,34 @@
+===
+link tag: fragment + label
+===
+
+/**
+ * {@link ##fragment label}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (fragment))
+      (description))))
+
+===
+link tag: fragment
+===
+
+/**
+ * {@link ##fragment}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (fragment)))))

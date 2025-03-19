@@ -1,0 +1,42 @@
+===
+link tag: type + fragment + label
+===
+
+/**
+ * {@link java.lang.System##fragment label}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (type
+          (identifier)
+          (identifier)
+          (identifier))
+        (fragment))
+      (description))))
+
+===
+link tag: type + fragment
+===
+
+/**
+ * {@link java.lang.System##fragment}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (type
+          (identifier)
+          (identifier)
+          (identifier))
+        (fragment)))))

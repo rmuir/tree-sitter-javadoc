@@ -1,0 +1,38 @@
+===
+link tag: module + label
+===
+
+/**
+ * {@link java.base/ label}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (module
+          (identifier)
+          (identifier)))
+      (description))))
+
+===
+link tag: module
+===
+
+/**
+ * {@link java.base/}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (module
+          (identifier)
+          (identifier))))))

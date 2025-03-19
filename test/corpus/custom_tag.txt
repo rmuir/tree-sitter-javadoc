@@ -1,0 +1,59 @@
+===
+custom tag
+===
+
+/**
+ * @foo.custom My stuff
+ */
+
+---
+
+(document
+  (custom_tag
+    (tag_name)
+    (description)))
+
+===
+custom tag: inline
+===
+
+/**
+ * {@foo.custom My stuff}
+ */
+
+---
+
+(document
+  (description
+    (custom_inline_tag
+      (tag_name)
+      (description))))
+
+===
+custom tag: missing description
+===
+
+/**
+ * @foo.custom
+ */
+
+---
+
+(document
+  (custom_tag
+    (tag_name)))
+
+===
+custom tag: inline, missing description
+===
+
+/**
+ * {@foo.custom}
+ */
+
+---
+
+(document
+  (description
+    (custom_inline_tag
+      (tag_name))))

@@ -1,0 +1,100 @@
+===
+param tag
+===
+
+/**
+ * @param foobar My param
+ */
+
+---
+
+(document
+  (param_tag
+    (tag_name)
+    (identifier)
+    (description)))
+
+===
+param tag: type parameter
+===
+
+/**
+ * @param <T> My param
+ */
+
+---
+
+(document
+  (param_tag
+    (tag_name)
+    (type_parameter
+      (identifier))
+    (description)))
+
+===
+param tag: missing description
+===
+
+/**
+ * @param foobar
+ */
+
+---
+
+(document
+  (param_tag
+    (tag_name)
+    (identifier)))
+
+===
+param tag: type parameter, missing description
+===
+
+/**
+ * @param <T>
+ */
+
+---
+
+(document
+  (param_tag
+    (tag_name)
+    (type_parameter
+      (identifier))))
+
+===
+param tag: inheritdoc
+===
+
+/**
+ * @param foobar {@inheritDoc}
+ */
+
+---
+
+(document
+  (param_tag
+    (tag_name)
+    (identifier)
+    (description
+      (inherit_doc_tag
+        (tag_name)))))
+
+===
+param tag: type parameter inheritdoc
+===
+
+/**
+ * @param <T> {@inheritDoc}
+ */
+
+---
+
+(document
+  (param_tag
+    (tag_name)
+    (type_parameter
+      (identifier))
+    (description
+      (inherit_doc_tag
+        (tag_name)))))

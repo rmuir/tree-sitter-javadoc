@@ -1,0 +1,31 @@
+===
+literal tag
+===
+
+/**
+ * {@literal test}
+ */
+
+---
+
+(document
+  (description
+    (literal_tag
+      (tag_name)
+      (literal))))
+
+===
+literal tag: without any literal
+===
+
+/**
+ * {@literal}
+ */
+
+---
+
+(document
+  (description
+    (literal_tag
+      (tag_name))))
+   

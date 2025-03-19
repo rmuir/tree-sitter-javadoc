@@ -1,0 +1,52 @@
+===
+throws tag
+===
+
+/**
+ * @throws Type test
+ */
+
+---
+
+(document
+  (throws_tag
+    (tag_name)
+    (type
+      (identifier))
+    (description)))
+
+===
+throws tag: qualified type
+===
+
+/**
+ * @throws foo.Type test
+ */
+
+---
+
+(document
+  (throws_tag
+    (tag_name)
+    (type
+      (identifier)
+      (identifier))
+    (description)))
+
+===
+throws tag: missing description
+===
+
+/**
+ * @throws Type
+ */
+
+---
+
+(document
+  (throws_tag
+    (tag_name)
+    (type
+      (identifier))))
+
+

@@ -1,0 +1,52 @@
+===
+exception tag
+===
+
+/**
+ * @exception Type test
+ */
+
+---
+
+(document
+  (throws_tag
+    (tag_name)
+    (type
+      (identifier))
+    (description)))
+
+===
+exception tag: qualified type
+===
+
+/**
+ * @exception foo.Type test
+ */
+
+---
+
+(document
+  (throws_tag
+    (tag_name)
+    (type
+      (identifier)
+      (identifier))
+    (description)))
+
+===
+exception tag: missing description
+===
+
+/**
+ * @exception Type
+ */
+
+---
+
+(document
+  (throws_tag
+    (tag_name)
+    (type
+      (identifier))))
+
+

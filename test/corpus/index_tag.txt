@@ -1,0 +1,67 @@
+===
+index tag: word
+===
+
+/**
+ * {@index word description}
+ */
+
+---
+
+(document
+  (description
+    (index_tag
+      (tag_name)
+      (indexword)
+      (description))))
+
+===
+index tag: word missing description
+===
+
+/**
+ * {@index word}
+ */
+
+---
+
+(document
+  (description
+    (index_tag
+      (tag_name)
+      (indexword))))
+
+===
+index tag: phrase
+===
+
+/**
+ * {@index "a phrase" description}
+ */
+
+---
+
+(document
+  (description
+    (index_tag
+      (tag_name)
+      (string_literal
+        (quoted_value))
+      (description))))
+
+===
+index tag: phrase missing description
+===
+
+/**
+ * {@index "a phrase"}
+ */
+
+---
+
+(document
+  (description
+    (index_tag
+      (tag_name)
+      (string_literal
+        (quoted_value)))))

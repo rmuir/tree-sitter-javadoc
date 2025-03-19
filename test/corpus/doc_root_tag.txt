@@ -1,0 +1,14 @@
+===
+docRoot tag
+===
+
+/**
+ * {@docRoot}
+ */
+
+---
+
+(document
+  (description
+    (doc_root_tag
+      (tag_name))))

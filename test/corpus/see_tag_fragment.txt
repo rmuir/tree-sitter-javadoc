@@ -1,0 +1,32 @@
+===
+see tag: fragment + label
+===
+
+/**
+ * @see ##fragment label
+ */
+
+---
+
+(document
+  (see_tag
+    (tag_name)
+    (reference
+      (fragment))
+    (description)))
+
+===
+see tag: fragment
+===
+
+/**
+ * @see ##fragment
+ */
+
+---
+
+(document
+  (see_tag
+    (tag_name)
+    (reference
+      (fragment))))

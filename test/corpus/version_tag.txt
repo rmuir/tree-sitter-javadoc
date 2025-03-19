@@ -1,0 +1,28 @@
+===
+version tag
+===
+
+/**
+ * @version My Special 1.0
+ */
+
+---
+
+(document
+  (version_tag
+    (tag_name)
+    (description)))
+
+===
+version tag: missing description
+===
+
+/**
+ * @version
+ */
+
+---
+
+(document
+  (version_tag
+    (tag_name)))

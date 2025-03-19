@@ -1,0 +1,46 @@
+===
+link tag: module + type + label
+===
+
+/**
+ * {@link java.base/java.lang.System label}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (module
+          (identifier)
+          (identifier))
+        (type
+          (identifier)
+          (identifier)
+          (identifier)))
+      (description))))
+
+===
+link tag: module + type
+===
+
+/**
+ * {@link java.base/java.lang.System}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (module
+          (identifier)
+          (identifier))
+        (type
+          (identifier)
+          (identifier)
+          (identifier))))))

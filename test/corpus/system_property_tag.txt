@@ -1,0 +1,32 @@
+===
+systemProperty tag
+===
+
+/**
+ * {@systemProperty somePrefix.property}
+ */
+
+---
+
+(document
+  (description
+    (system_property_tag
+      (tag_name)
+      (system_property
+        (identifier)
+        (identifier)))))
+
+===
+systemProperty tag: missing system property
+===
+
+/**
+ * {@systemProperty}
+ */
+
+---
+
+(document
+  (description
+    (system_property_tag
+      (tag_name))))

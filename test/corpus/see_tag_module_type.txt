@@ -1,0 +1,44 @@
+===
+see tag: module + type + label
+===
+
+/**
+ * @see java.base/java.lang.System label
+ */
+
+---
+
+(document
+  (see_tag
+    (tag_name)
+    (reference
+      (module
+        (identifier)
+        (identifier))
+      (type
+        (identifier)
+        (identifier)
+        (identifier)))
+    (description)))
+
+===
+see tag: module + type
+===
+
+/**
+ * @see java.base/java.lang.System
+ */
+
+---
+
+(document
+  (see_tag
+    (tag_name)
+    (reference
+      (module
+        (identifier)
+        (identifier))
+      (type
+        (identifier)
+        (identifier)
+        (identifier)))))

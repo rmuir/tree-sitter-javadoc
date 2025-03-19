@@ -1,0 +1,34 @@
+===
+serialField tag
+===
+
+/**
+ * @serialField fieldName MyType My description
+ */
+
+---
+
+(document
+  (serial_field_tag
+    (tag_name)
+    (identifier)
+    (type
+      (identifier))
+    (description)))
+
+===
+serialField tag: missing description
+===
+
+/**
+ * @serialField fieldName MyType
+ */
+
+---
+
+(document
+  (serial_field_tag
+    (tag_name)
+    (identifier)
+    (type
+      (identifier))))

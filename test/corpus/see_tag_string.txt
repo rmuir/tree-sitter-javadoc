@@ -1,0 +1,15 @@
+===
+see tag: string
+===
+
+/**
+ * @see "string"
+ */
+
+---
+
+(document
+  (see_tag
+    (tag_name)
+    (string_literal
+      (quoted_value))))

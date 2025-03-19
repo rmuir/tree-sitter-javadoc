@@ -1,0 +1,42 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "javadoc",
+      "camelcase": "Javadoc",
+      "title": "Javadoc",
+      "scope": "source.javadoc",
+      "file-types": [
+        "javadoc"
+      ],
+      "injection-regex": "^javadoc$",
+      "class-name": "TreeSitterJavadoc",
+      "highlights": "queries/highlights.scm",
+      "injections": "queries/injections.scm"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Parser for Javadoc documentation comments",
+    "authors": [
+      {
+        "name": "Robert Muir",
+        "email": "rmuir@apache.org",
+        "url": "https://github.com/rmuir"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/rmuir/tree-sitter-javadoc"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}

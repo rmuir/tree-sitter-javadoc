@@ -1,0 +1,24 @@
+[tool.pyright]
+pythonVersion = "3.12"
+venvPath = "."
+venv = ".venv"
+typeCheckingMode = "standard"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 200
+indent-width = 4
+
+[tool.ruff.lint]
+# disabling/enabling of rules
+ignore = [
+  # These rules are always disabled, conflict with other rules
+  # don't enable! (switch to the alternative instead)
+  "D203",    # disabled in favor of D211 (no-black-line-before-class)
+  "D213",    # disabled in favor of D212 (multi-line-summary-first-line)
+
+  # These rules are always disabled: conflict with the formatter
+  # don't enable! https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
+  "W191", "E111", "E114", "E117", "D206", "D300", "Q000", "Q001",
+  "Q002", "Q003", "COM812", "COM819", "ISC001", "ISC002", "E501",
+]

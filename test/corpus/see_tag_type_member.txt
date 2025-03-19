@@ -1,0 +1,56 @@
+===
+see tag: type + member + label
+===
+
+/**
+ * @see java.lang.System#getProperty(String key) label
+ */
+
+---
+
+(document
+  (see_tag
+    (tag_name)
+    (reference
+      (type
+        (identifier)
+        (identifier)
+        (identifier))
+      (member
+        (method
+          (identifier)
+            (parameters
+              (parameter
+                (parameter_type
+                  (type
+                    (identifier)))
+                  (identifier))))))
+    (description)))
+
+===
+see tag: type + member
+===
+
+/**
+ * @see java.lang.System#getProperty(String key)
+ */
+
+---
+
+(document
+  (see_tag
+    (tag_name)
+    (reference
+      (type
+        (identifier)
+        (identifier)
+        (identifier))
+      (member
+        (method
+          (identifier)
+            (parameters
+              (parameter
+                (parameter_type
+                  (type
+                    (identifier)))
+                  (identifier))))))))

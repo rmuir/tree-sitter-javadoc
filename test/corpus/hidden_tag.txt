@@ -1,0 +1,13 @@
+===
+hidden tag
+===
+
+/**
+ * @hidden
+ */
+
+---
+
+(document
+  (hidden_tag
+    (tag_name)))

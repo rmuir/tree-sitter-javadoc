@@ -1,0 +1,17 @@
+===
+see tag: module
+===
+
+/**
+ * @see java.base/
+ */
+
+---
+
+(document
+  (see_tag
+    (tag_name)
+    (reference
+      (module
+        (identifier)
+        (identifier)))))

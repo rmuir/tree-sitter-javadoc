@@ -1,0 +1,32 @@
+===
+provides tag
+===
+
+/**
+ * @provides Service test
+ */
+
+---
+
+(document
+  (provides_tag
+    (tag_name)
+    (type
+      (identifier))
+    (description)))
+
+===
+provides tag: missing description
+===
+
+/**
+ * @provides Service
+ */
+
+---
+
+(document
+  (provides_tag
+    (tag_name)
+    (type
+      (identifier))))

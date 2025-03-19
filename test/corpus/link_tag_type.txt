@@ -1,0 +1,40 @@
+===
+link tag: type + label
+===
+
+/**
+ * {@link java.lang.System label}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (type
+          (identifier)
+          (identifier)
+          (identifier)))
+      (description))))
+
+===
+link tag: type
+===
+
+/**
+ * {@link java.lang.System}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (type
+          (identifier)
+          (identifier)
+          (identifier))))))

@@ -1,0 +1,58 @@
+===
+link tag: type + member + label
+===
+
+/**
+ * {@link java.lang.System#getProperty(String key) label}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (type
+          (identifier)
+          (identifier)
+          (identifier))
+        (member
+          (method
+            (identifier)
+              (parameters
+                (parameter
+                  (parameter_type
+                    (type
+                      (identifier)))
+                    (identifier))))))
+      (description))))
+
+===
+link tag: type + member
+===
+
+/**
+ * {@link java.lang.System#getProperty(String key)}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (type
+          (identifier)
+          (identifier)
+          (identifier))
+        (member
+          (method
+            (identifier)
+              (parameters
+                (parameter
+                  (parameter_type
+                    (type
+                      (identifier)))
+                    (identifier)))))))))

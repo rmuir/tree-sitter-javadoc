@@ -1,0 +1,48 @@
+===
+document: single-line
+===
+
+/// test
+
+---
+
+(document
+  (markdown_description))
+
+===
+document: multi-line
+===
+
+/**
+ * test
+ */
+
+---
+
+(document
+  (description))
+
+===
+document: multi-line in disguise
+===
+
+/** test */
+
+---
+
+(document
+  (description))
+
+===
+document: two lines
+===
+
+/**
+ * test
+ * this
+ */
+
+---
+
+(document
+  (description))

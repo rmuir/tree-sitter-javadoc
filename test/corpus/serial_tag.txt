@@ -1,0 +1,43 @@
+===
+serial tag
+===
+
+/**
+ * @serial My description
+ */
+
+---
+
+(document
+  (serial_tag
+    (tag_name)
+    (description)))
+
+===
+serial tag: include
+===
+
+/**
+ * @serial include
+ */
+
+---
+
+(document
+  (serial_tag
+    (tag_name)))
+
+===
+serial tag: exclude
+===
+
+/**
+ * @serial exclude
+ */
+
+---
+
+(document
+  (serial_tag
+    (tag_name)))
+    

@@ -1,0 +1,28 @@
+===
+deprecated tag
+===
+
+/**
+ * @deprecated test
+ */
+
+---
+
+(document
+  (deprecated_tag
+    (tag_name)
+    (description)))
+
+===
+deprecated tag: no description
+===
+
+/**
+ * @deprecated
+ */
+
+---
+
+(document
+  (deprecated_tag
+    (tag_name)))

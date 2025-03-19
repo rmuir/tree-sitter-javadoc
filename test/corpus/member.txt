@@ -1,0 +1,445 @@
+===
+member: method
+===
+
+/**
+ * {@link #member()}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (method
+            (identifier)))))))
+
+===
+member: method with boolean param
+===
+
+/**
+ * {@link #member(boolean)}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (method
+            (identifier)
+            (parameters
+              (parameter
+                (parameter_type
+                  (boolean_type))))))))))
+
+===
+member: method with byte param
+===
+
+/**
+ * {@link #member(byte)}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (method
+            (identifier)
+            (parameters
+              (parameter
+                (parameter_type
+                  (integral_type))))))))))
+
+===
+member: method with short param
+===
+
+/**
+ * {@link #member(short)}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (method
+            (identifier)
+            (parameters
+              (parameter
+                (parameter_type
+                  (integral_type))))))))))
+
+===
+member: method with int param
+===
+
+/**
+ * {@link #member(int)}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (method
+            (identifier)
+            (parameters
+              (parameter
+                (parameter_type
+                  (integral_type))))))))))
+
+===
+member: method with long param
+===
+
+/**
+ * {@link #member(long)}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (method
+            (identifier)
+            (parameters
+              (parameter
+                (parameter_type
+                  (integral_type))))))))))
+
+===
+member: method with char param
+===
+
+/**
+ * {@link #member(char)}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (method
+            (identifier)
+            (parameters
+              (parameter
+                (parameter_type
+                  (integral_type))))))))))
+
+===
+member: method with float param
+===
+
+/**
+ * {@link #member(float)}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (method
+            (identifier)
+            (parameters
+              (parameter
+                (parameter_type
+                  (floating_point_type))))))))))
+
+===
+member: method with double param
+===
+
+/**
+ * {@link #member(double)}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (method
+            (identifier)
+            (parameters
+              (parameter
+                (parameter_type
+                  (floating_point_type))))))))))
+
+===
+member: method with class param
+===
+
+/**
+ * {@link #member(String)}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (method
+            (identifier)
+            (parameters
+              (parameter
+                (parameter_type
+                  (type
+                    (identifier)))))))))))
+
+===
+member: method with qualified class param
+===
+
+/**
+ * {@link #member(java.lang.String)}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (method
+            (identifier)
+            (parameters
+              (parameter
+                (parameter_type
+                  (type
+                    (identifier)
+                    (identifier)
+                    (identifier)))))))))))
+
+===
+member: method with named param
+===
+
+/**
+ * {@link #member(int foo)}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (method
+            (identifier)
+            (parameters
+              (parameter
+                (parameter_type
+                  (integral_type))
+                (identifier)))))))))
+
+===
+member: method with array param
+===
+
+/**
+ * {@link #member(int[])}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (method
+            (identifier)
+            (parameters
+              (parameter
+                (parameter_type
+                  (integral_type))))))))))
+
+===
+member: method with spread param
+===
+
+/**
+ * {@link #member(int...)}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (method
+            (identifier)
+            (parameters
+              (parameter
+                (parameter_type
+                  (integral_type))))))))))
+
+===
+member: method with named array param: LHS
+===
+
+/**
+ * {@link #member(int[] arg)}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (method
+            (identifier)
+            (parameters
+              (parameter
+                (parameter_type
+                  (integral_type))
+                (identifier)))))))))
+
+===
+member: method with named array param: RHS
+===
+
+/**
+ * {@link #member(int arg[])}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (method
+            (identifier)
+            (parameters
+              (parameter
+                (parameter_type
+                  (integral_type))
+                (identifier)))))))))
+
+===
+member: method with named spread param: LHS
+===
+
+/**
+ * {@link #member(int... arg)}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (method
+            (identifier)
+            (parameters
+              (parameter
+                (parameter_type
+                  (integral_type))
+                (identifier)))))))))
+
+===
+member: method with named spread param: RHS
+===
+
+/**
+ * {@link #member(int arg...)}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (method
+            (identifier)
+            (parameters
+              (parameter
+                (parameter_type
+                  (integral_type))
+                (identifier)))))))))
+
+===
+member: method with two params
+===
+
+/**
+ * {@link #member(int,int)}
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (method
+            (identifier)
+            (parameters
+              (parameter
+                (parameter_type
+                  (integral_type)))
+              (parameter
+                (parameter_type
+                  (integral_type))))))))))
+

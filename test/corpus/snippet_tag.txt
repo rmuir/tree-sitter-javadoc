@@ -1,0 +1,73 @@
+===
+snippet tag
+===
+
+/**
+ * {@snippet lang=c :
+ *   printf("foo bar");
+ * }
+ */
+
+---
+
+(document
+  (description
+  (snippet_tag
+    (tag_name)
+    (attributes
+      (attribute
+        (identifier)
+        (attribute_value
+          (identifier))))
+    (description))))
+
+===
+snippet tag: quoted
+===
+
+/**
+ * {@snippet lang="c" :
+ *   printf("foo bar");
+ * }
+ */
+
+---
+
+(document
+  (description
+  (snippet_tag
+    (tag_name)
+    (attributes
+      (attribute
+        (identifier)
+        (attribute_value
+          (string_literal
+            (quoted_value)))))
+    (description))))
+
+===
+snippet tag: two attributes
+===
+
+/**
+ * {@snippet lang=c other=somethingelse:
+ *   printf("foo bar");
+ * }
+ */
+
+---
+
+(document
+  (description
+  (snippet_tag
+    (tag_name)
+    (attributes
+      (attribute
+        (identifier)
+        (attribute_value
+          (identifier)))
+      (attribute
+        (identifier)
+        (attribute_value
+          (identifier))))
+    (description))))

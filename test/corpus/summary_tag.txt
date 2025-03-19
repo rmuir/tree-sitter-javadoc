@@ -1,0 +1,30 @@
+===
+summary tag
+===
+
+/**
+ * {@summary some text}
+ */
+
+---
+
+(document
+  (description
+    (summary_tag
+      (tag_name)
+      (description))))
+
+===
+summary tag: missing summary
+===
+
+/**
+ * {@summary}
+ */
+
+---
+
+(document
+  (description
+    (summary_tag
+      (tag_name))))
