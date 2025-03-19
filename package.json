@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-javadoc",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Parser for Javadoc documentation comments",
   "repository": "https://github.com/rmuir/tree-sitter-javadoc",
   "license": "MIT",
