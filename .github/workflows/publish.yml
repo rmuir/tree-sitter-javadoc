@@ -27,3 +27,9 @@ jobs:
       PYPI_API_TOKEN: ${{secrets.PYPI_API_TOKEN}}
     with:
       generate: false
+  npm:
+    uses: tree-sitter/workflows/.github/workflows/package-npm.yml@main
+    secrets:
+      NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
+    with:
+      generate: false
