@@ -14,7 +14,7 @@
 #pragma GCC optimize ("O0")
 #endif
 
-#define LANGUAGE_VERSION 14
+#define LANGUAGE_VERSION 15
 #define STATE_COUNT 293
 #define LARGE_STATE_COUNT 2
 #define SYMBOL_COUNT 138
@@ -25,7 +25,7 @@
 #define MAX_ALIAS_SEQUENCE_LENGTH 5
 #define MAX_RESERVED_WORD_SET_SIZE 0
 #define PRODUCTION_ID_COUNT 49
-#define SUPERTYPE_COUNT 0
+#define SUPERTYPE_COUNT 2
 
 enum ts_symbol_identifiers {
   anon_sym_LBRACE = 1,
@@ -1613,6 +1613,50 @@ static const TSStateId ts_primary_state_ids[STATE_COUNT] = {
   [290] = 290,
   [291] = 263,
   [292] = 237,
+};
+
+static const TSSymbol ts_supertype_symbols[SUPERTYPE_COUNT] = {
+  sym_block_tag,
+  sym_inline_tag,
+};
+
+static const TSMapSlice ts_supertype_map_slices[] = {
+  [sym_block_tag] = {.index = 0, .length = 16},
+  [sym_inline_tag] = {.index = 16, .length = 13},
+};
+
+static const TSSymbol ts_supertype_map_entries[] = {
+  [0] =
+    sym_author_tag,
+    sym_custom_tag,
+    sym_deprecated_tag,
+    sym_hidden_tag,
+    sym_param_tag,
+    sym_provides_tag,
+    sym_return_tag,
+    sym_see_tag,
+    sym_serial_data_tag,
+    sym_serial_field_tag,
+    sym_serial_tag,
+    sym_since_tag,
+    sym_spec_tag,
+    sym_throws_tag,
+    sym_uses_tag,
+    sym_version_tag,
+  [16] =
+    sym__inline_return_tag,
+    sym_code_tag,
+    sym_custom_inline_tag,
+    sym_doc_root_tag,
+    sym_index_tag,
+    sym_inherit_doc_tag,
+    sym_link_tag,
+    sym_literal_tag,
+    sym_return_tag,
+    sym_snippet_tag,
+    sym_summary_tag,
+    sym_system_property_tag,
+    sym_value_tag,
 };
 
 static const TSCharacterRange sym_fragment_character_set_1[] = {
@@ -5792,7 +5836,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
   }
 }
 
-static const TSLexMode ts_lex_modes[STATE_COUNT] = {
+static const TSLexerMode ts_lex_modes[STATE_COUNT] = {
   [0] = {.lex_state = 0, .external_lex_state = 1},
   [1] = {.lex_state = 6},
   [2] = {.lex_state = 92},
@@ -10806,6 +10850,7 @@ TS_PUBLIC const TSLanguage *tree_sitter_javadoc(void) {
     .state_count = STATE_COUNT,
     .large_state_count = LARGE_STATE_COUNT,
     .production_id_count = PRODUCTION_ID_COUNT,
+    .supertype_count = SUPERTYPE_COUNT,
     .field_count = FIELD_COUNT,
     .max_alias_sequence_length = MAX_ALIAS_SEQUENCE_LENGTH,
     .parse_table = &ts_parse_table[0][0],
@@ -10816,6 +10861,9 @@ TS_PUBLIC const TSLanguage *tree_sitter_javadoc(void) {
     .field_names = ts_field_names,
     .field_map_slices = ts_field_map_slices,
     .field_map_entries = ts_field_map_entries,
+    .supertype_map_slices = ts_supertype_map_slices,
+    .supertype_map_entries = ts_supertype_map_entries,
+    .supertype_symbols = ts_supertype_symbols,
     .symbol_metadata = ts_symbol_metadata,
     .public_symbol_map = ts_symbol_map,
     .alias_map = ts_non_terminal_alias_map,
@@ -10832,6 +10880,13 @@ TS_PUBLIC const TSLanguage *tree_sitter_javadoc(void) {
       tree_sitter_javadoc_external_scanner_deserialize,
     },
     .primary_state_ids = ts_primary_state_ids,
+    .name = "javadoc",
+    .max_reserved_word_set_size = 0,
+    .metadata = {
+      .major_version = 0,
+      .minor_version = 0,
+      .patch_version = 4,
+    },
   };
   return &language;
 }
