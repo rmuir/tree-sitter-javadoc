@@ -34,12 +34,12 @@ jobs:
       - name: Run parser and binding tests
         uses: tree-sitter/parser-test-action@v2
         with:
-          test-go: ${{runner.os == 'Linux'}}
-          test-python: ${{runner.os == 'Linux'}}
+          test-go: true
+          test-python: true
           # TODO: not yet functional
           # test-node: ${{runner.os == 'Linux'}}
-          test-rust: ${{runner.os == 'Linux'}}
-          test-swift: ${{runner.os == 'macOS'}}
+          test-rust: true
+          test-swift: ${{runner.os == 'macOS' || runner.os == 'Linux'}}
       - name: Parse sample files
         uses: tree-sitter/parse-action@v4
         id: parse-files
