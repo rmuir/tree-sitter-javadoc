@@ -7,7 +7,7 @@ HOMEPAGE_URL := https://github.com/rmuir/tree-sitter-javadoc
 VERSION := 0.0.4
 
 # breaks all tools if we go too new
-export TREE_SITTER_ABI_VERSION = 14
+export TREE_SITTER_ABI_VERSION = 15
 
 # repository
 SRC_DIR := src
