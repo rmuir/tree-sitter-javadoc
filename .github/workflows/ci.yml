@@ -30,7 +30,7 @@ jobs:
       - name: Set up tree-sitter
         uses: tree-sitter/setup-action/cli@v2
         with:
-          tree-sitter-ref: "v0.25.3"
+          tree-sitter-ref: "v0.25.5"
       - name: Run parser and binding tests
         uses: tree-sitter/parser-test-action@v2
         with:
