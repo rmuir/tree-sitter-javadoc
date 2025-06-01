@@ -39,7 +39,8 @@ jobs:
           # TODO: not yet functional
           # test-node: ${{runner.os == 'Linux'}}
           test-rust: true
-          test-swift: ${{runner.os == 'macOS' || runner.os == 'Linux'}}
+          # setup-swift fails GPG validation on linux
+          test-swift: ${{runner.os == 'macOS'}}
       - name: Parse sample files
         uses: tree-sitter/parse-action@v4
         id: parse-files
