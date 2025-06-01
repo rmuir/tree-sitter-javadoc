@@ -18,6 +18,8 @@ jobs:
   test:
     name: Test parser
     runs-on: ${{matrix.os}}
+    env:
+      TREE_SITTER_ABI_VERSION: 14
     strategy:
       fail-fast: false
       matrix:
@@ -46,6 +48,8 @@ jobs:
   fuzz:
     name: Fuzz scanner
     runs-on: ubuntu-latest
+    env:
+      TREE_SITTER_ABI_VERSION: 14
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
