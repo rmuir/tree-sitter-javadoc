@@ -1,5 +1,8 @@
 name: CI
 
+permissions:
+  contents: read
+
 env:
   # waiting on 0.25.6 to prevent CI breakage due to commit SHAs in comments
   TREE_SITTER_VERSION: "v0.25.3"
@@ -8,10 +11,8 @@ env:
 
 on:
   workflow_dispatch:
-
   push:
     branches: [main]
-
   pull_request:
     branches:
       - '*'
