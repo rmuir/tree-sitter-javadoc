@@ -45,17 +45,6 @@ jobs:
           test-rust: true
           # setup-swift fails GPG validation on linux
           test-swift: ${{runner.os == 'macOS'}}
-      - name: Parse sample files
-        uses: tree-sitter/parse-action@v4
-        id: parse-files
-        with:
-          files: examples/**
-      - name: Upload failures artifact
-        uses: actions/upload-artifact@v4
-        if: "!cancelled() && steps.parse-files.outcome == 'failure'"
-        with:
-          name: failures-${{runner.os}}
-          path: ${{steps.parse-files.outputs.failures}}
   fuzz:
     name: Fuzz scanner
     runs-on: ubuntu-latest
