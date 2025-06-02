@@ -1,5 +1,8 @@
 name: Lint
 
+permissions:
+  contents: read
+
 env:
   # arbitrary
   NODE_VERSION: "22.16.0"
