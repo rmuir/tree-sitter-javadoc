@@ -36,8 +36,7 @@ jobs:
         with:
           test-go: true
           test-python: true
-          # TODO: not yet functional
-          # test-node: ${{runner.os == 'Linux'}}
+          test-node: true
           test-rust: true
           # setup-swift fails GPG validation on linux
           test-swift: ${{runner.os == 'macOS'}}
