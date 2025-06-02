@@ -8,11 +8,14 @@ env:
   TREE_SITTER_VERSION: "v0.25.3"
   # waiting on tree-sitter-swift to support 15
   TREE_SITTER_ABI_VERSION: "14"
+  # arbitrary, for linting only
+  NODE_VERSION: "22.16.0"
 
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
     branches:
       - '*'
@@ -22,6 +25,23 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  lint:
+    name: Lint grammar
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          cache: npm
+          node-version: ${{env.NODE_VERSION}}
+      - name: Install modules
+        run: npm ci --legacy-peer-deps
+      - name: Run tsc
+        run: npm run typecheck
+      - name: Run ESLint
+        run: npm run lint
   test:
     name: Test parser
     runs-on: ${{matrix.os}}
