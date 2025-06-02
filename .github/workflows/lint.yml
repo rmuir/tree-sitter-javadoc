@@ -29,5 +29,7 @@ jobs:
           node-version: ${{env.NODE_VERSION}}
       - name: Install modules
         run: npm ci --legacy-peer-deps
+      - name: Run TSC
+        run: npm run typecheck
       - name: Run ESLint
         run: npm run lint
