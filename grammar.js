@@ -396,7 +396,7 @@ module.exports = grammar({
     indexword: _ => /[a-zA-Z]+/,
 
     unsigned_integer: _ => /[0-9]+/,
-    identifier: _ => /[\p{XID_Start}_$][\p{XID_Continue}\u00A2_$]*/,
+    identifier: _ => /[\p{XID_Start}_$][\p{XID_Continue}\u00A2_$]*/u,
 
     literal: _ => /[^}]+/,
     code: $ => $._text,
