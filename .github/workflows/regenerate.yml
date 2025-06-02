@@ -1,7 +1,9 @@
 name: Regenerate parser
 
 on:
-  pull_request:
+  workflow_dispatch:
+  # disable until automation / permissions are setup
+  # pull_request:
 
 concurrency:
   group: ${{github.workflow}}-${{github.ref}}
