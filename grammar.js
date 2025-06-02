@@ -1,18 +1,18 @@
 /**
-  * See https://docs.oracle.com/en/java/javase/23/docs/specs/javadoc/doc-comment-spec.html for
-  * more information on how javadocs work... in theory.
-  * In the wild, these comments are a bit messier.
-  *
-  * @file Parser for Javadoc documentation comments
-  * @author Robert Muir <rmuir@apache.org>
-  * @license MIT
-  */
+ * See https://docs.oracle.com/en/java/javase/23/docs/specs/javadoc/doc-comment-spec.html for
+ * more information on how javadocs work... in theory.
+ * In the wild, these comments are a bit messier.
+ *
+ * @file Parser for Javadoc documentation comments
+ * @author Robert Muir <rmuir@apache.org>
+ * @license MIT
+ */
 
-  /// <reference types="tree-sitter-cli/dsl" />
-  // @ts-check
+/// <reference types="tree-sitter-cli/dsl" />
+// @ts-check
 
 module.exports = grammar({
-  name: "javadoc",
+  name: 'javadoc',
 
   // reads to the end of tag (brace balancing)
   externals: $ => [
@@ -29,7 +29,7 @@ module.exports = grammar({
 
   supertypes: $ => [
     $.inline_tag,
-    $.block_tag
+    $.block_tag,
   ],
 
   rules: {
@@ -55,8 +55,8 @@ module.exports = grammar({
         $._text,
         $._inline_tag_actual,
         $._inline_tag_false_positive,
-      )
-    ),
+      ),
+      ),
 
     // we are just an alias node to make it easier to apply appropriate injection
     markdown_description: _ => '',
@@ -156,9 +156,9 @@ module.exports = grammar({
       field('name', alias('@param', $.tag_name)),
       choice(
         seq(
-        '<',
-        field('type_parameter_name', $.type_parameter),
-        '>',
+          '<',
+          field('type_parameter_name', $.type_parameter),
+          '>',
         ),
         field('parameter_name', $.identifier),
       ),
@@ -173,12 +173,12 @@ module.exports = grammar({
 
     return_tag: $ => seq(
       field('name', alias('@return', $.tag_name)),
-      optional(field('description', $.description))
+      optional(field('description', $.description)),
     ),
 
     _inline_return_tag: $ => seq(
       field('name', alias('@return', $.tag_name)),
-      optional(field('description', alias($.inline_description, $.description)))
+      optional(field('description', alias($.inline_description, $.description))),
     ),
 
     see_tag: $ => seq(
@@ -188,8 +188,8 @@ module.exports = grammar({
         field('url_title', $.url_title),
         field('reference', $.reference),
         seq(field('reference', $.reference), field('label', $.description)),
-        ),
       ),
+    ),
 
     serial_tag: $ => seq(
       field('name', alias('@serial', $.tag_name)),
@@ -258,15 +258,15 @@ module.exports = grammar({
     value_tag: $ => seq(
       field('name', alias('@value', $.tag_name)),
       optional(
-          field('format',
-            choice(
-              $.bare_format_string,
-              $.literal_format_string)
-          ),
+        field('format',
+          choice(
+            $.bare_format_string,
+            $.literal_format_string),
+        ),
       ),
       optional(
-          field('field_reference', $.reference),
-      )
+        field('field_reference', $.reference),
+      ),
     ),
 
     version_tag: $ => seq(
@@ -276,29 +276,29 @@ module.exports = grammar({
 
     // generic block tag (e.g. custom doclet)
     custom_tag: $ => seq(
-        field('name', $.tag_name),
-        optional(field('description', $.description)),
+      field('name', $.tag_name),
+      optional(field('description', $.description)),
     ),
 
     // generic inline tag (e.g. custom doclet)
     custom_inline_tag: $ => seq(
-        field('name', $.tag_name),
-        optional(field('description', alias($.inline_description, $.description))),
+      field('name', $.tag_name),
+      optional(field('description', alias($.inline_description, $.description))),
     ),
 
     attributes: $ => repeat1(
-      $.attribute
+      $.attribute,
     ),
 
     attribute: $ => seq(
       field('name', $.identifier),
-      optional(seq('=', field('value', $.attribute_value)))
+      optional(seq('=', field('value', $.attribute_value))),
     ),
 
     attribute_value: $ => choice(
       $.string_literal,
       $.identifier,
-      $.unsigned_integer
+      $.unsigned_integer,
     ),
 
     // highly ambiguous due the ability to omit from both left and right sides
@@ -323,31 +323,31 @@ module.exports = grammar({
     method: $ => seq(
       $.identifier,
       '(',
-        optional($.parameters),
+      optional($.parameters),
       ')',
     ),
 
     parameters: $ => seq(
       $.parameter,
-      repeat(seq(',', $.parameter))
+      repeat(seq(',', $.parameter)),
     ),
 
     parameter: $ => seq(
       $.parameter_type,
       optional($._parameter_mods),
-      optional(seq(field('name', $.identifier), optional($._parameter_mods)))
+      optional(seq(field('name', $.identifier), optional($._parameter_mods))),
     ),
 
     parameter_type: $ => choice(
       $.boolean_type,
       $.integral_type,
       $.floating_point_type,
-      $.type
+      $.type,
     ),
 
     _parameter_mods: _ => choice(
       repeat1(seq('[', ']')),
-      '...'
+      '...',
     ),
 
     _space: _ => /[\s]+/,
@@ -355,12 +355,12 @@ module.exports = grammar({
     _qualified_identifier: $ => seq(
       $._type,
       '.',
-      $.identifier
+      $.identifier,
     ),
 
     _type: $ => choice(
       $.identifier,
-      $._qualified_identifier
+      $._qualified_identifier,
     ),
 
     module: $ => $._type,

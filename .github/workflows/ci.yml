@@ -1,5 +1,11 @@
 name: CI
 
+env:
+  # waiting on 0.25.6 to prevent CI breakage due to commit SHAs in comments
+  TREE_SITTER_VERSION: "v0.25.3"
+  # waiting on tree-sitter-swift to support 15
+  TREE_SITTER_ABI_VERSION: "14"
+
 on:
   workflow_dispatch:
 
@@ -18,8 +24,6 @@ jobs:
   test:
     name: Test parser
     runs-on: ${{matrix.os}}
-    env:
-      TREE_SITTER_ABI_VERSION: 14
     strategy:
       fail-fast: false
       matrix:
@@ -30,7 +34,7 @@ jobs:
       - name: Set up tree-sitter
         uses: tree-sitter/setup-action/cli@v2
         with:
-          tree-sitter-ref: "v0.25.3"
+          tree-sitter-ref: ${{env.TREE_SITTER_VERSION}}
       - name: Run parser and binding tests
         uses: tree-sitter/parser-test-action@v2
         with:
@@ -54,8 +58,6 @@ jobs:
   fuzz:
     name: Fuzz scanner
     runs-on: ubuntu-latest
-    env:
-      TREE_SITTER_ABI_VERSION: 14
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
