@@ -71,16 +71,5 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
-      - name: Check for scanner changes
-        id: scanner-check
-        run: |-
-          if git diff --quiet HEAD^ -- src/scanner.c; then
-            printf 'changed=false\n' >> "$GITHUB_OUTPUT"
-          else
-            printf 'changed=true\n' >> "$GITHUB_OUTPUT"
-          fi
       - name: Run the fuzzer
         uses: tree-sitter/fuzz-action@v4
-        if: steps.scanner-check.outputs.changed == 'true'
