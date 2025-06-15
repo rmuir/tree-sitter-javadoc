@@ -4,7 +4,7 @@ endif
 
 LANGUAGE_NAME := tree-sitter-javadoc
 HOMEPAGE_URL := https://github.com/rmuir/tree-sitter-javadoc
-VERSION := 0.0.5
+VERSION := 0.1.0
 
 export TREE_SITTER_ABI_VERSION = 15
 

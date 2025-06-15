@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 project(tree-sitter-javadoc
-        VERSION "0.0.5"
+        VERSION "0.1.0"
         DESCRIPTION "Parser for Javadoc documentation comments"
         HOMEPAGE_URL "https://github.com/rmuir/tree-sitter-javadoc"
         LANGUAGES C)
