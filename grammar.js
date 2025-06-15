@@ -50,13 +50,13 @@ module.exports = grammar({
       ),
     ),
 
-    description: $ =>
-      repeat1(choice(
+    description: $ => repeat1(
+      choice(
         $._text,
         $._inline_tag_actual,
         $._inline_tag_false_positive,
       ),
-      ),
+    ),
 
     // we are just an alias node to make it easier to apply appropriate injection
     markdown_description: _ => '',
