@@ -1,0 +1,5 @@
+---
+# yaml-language-server: $schema=https://www.schemastore.org/clangd.json
+CompileFlags:
+  Add: [-Wall, -Wextra]
+...
