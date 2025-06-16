@@ -303,16 +303,18 @@ module.exports = grammar({
 
     // highly ambiguous due the ability to omit from both left and right sides
     reference: $ => choice(
-      seq($.module, token.immediate('/'), $.type, '##', $.fragment),
-      seq($.module, token.immediate('/'), $.type, '#', $.member),
+      seq($.module, token.immediate('/'), $.type, $._fragment_or_member),
       seq($.module, token.immediate('/'), $.type),
       seq($.module, token.immediate('/')),
-      seq($.type, '##', $.fragment),
-      seq($.type, '#', $.member),
-      seq('##', $.fragment),
-      seq('#', $.member),
+      seq($.type, $._fragment_or_member),
+      $._fragment_or_member,
       alias($._qualified_identifier, $.type),
       $.member,
+    ),
+
+    _fragment_or_member: $ => choice(
+      seq('##', $.fragment),
+      seq('#', $.member),
     ),
 
     member: $ => choice(
