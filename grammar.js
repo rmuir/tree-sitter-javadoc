@@ -261,7 +261,8 @@ module.exports = grammar({
         field('format',
           choice(
             $.bare_format_string,
-            $.literal_format_string),
+            $.literal_format_string,
+          ),
         ),
       ),
       optional(
