@@ -63,6 +63,7 @@ jobs:
           test-rust: true
           # setup-swift fails GPG validation on linux
           test-swift: ${{runner.os == 'macOS'}}
+          abi-version: ${{env.TREE_SITTER_ABI_VERSION}}
   fuzz:
     name: Fuzz scanner
     runs-on: ubuntu-latest
