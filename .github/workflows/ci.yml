@@ -55,7 +55,7 @@ jobs:
         with:
           tree-sitter-ref: ${{env.TREE_SITTER_VERSION}}
       - name: Run parser and binding tests
-        uses: tree-sitter/parser-test-action@221c1838baa693cf2a71af78cd203cb7e3bb6e82 # v2
+        uses: tree-sitter/parser-test-action@d70d9d71114d35dda8e60e54604036a89f667a8c # v2
         with:
           test-go: true
           test-python: true
