@@ -388,8 +388,8 @@ module.exports = grammar({
 
     tag_name: _ => /@[a-zA-Z0-9_.]+/,
 
-    bare_format_string: _ => /%[^\s\%]+/,
-    literal_format_string: _ => seq('"', /[^"\%]*[\%][^"\%]*/, '"'),
+    bare_format_string: _ => /%[^\s%]+/,
+    literal_format_string: _ => seq('"', /[^"%]*[%][^"%]*/, '"'),
 
     system_property: $ => seq(repeat(seq($.identifier, '.')), $.identifier),
     string_literal: $ => seq('"', $.quoted_value, '"'),
