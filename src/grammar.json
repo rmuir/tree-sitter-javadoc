@@ -1953,7 +1953,7 @@
     },
     "bare_format_string": {
       "type": "PATTERN",
-      "value": "%[^\\s\\%]+"
+      "value": "%[^\\s%]+"
     },
     "literal_format_string": {
       "type": "SEQ",
@@ -1964,7 +1964,7 @@
         },
         {
           "type": "PATTERN",
-          "value": "[^\"\\%]*[\\%][^\"\\%]*"
+          "value": "[^\"%]*[%][^\"%]*"
         },
         {
           "type": "STRING",
