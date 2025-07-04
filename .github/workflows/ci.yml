@@ -89,6 +89,8 @@ jobs:
         uses: tree-sitter/parser-test-action@d70d9d71114d35dda8e60e54604036a89f667a8c # v2
         with:
           test-python: true
+          # disable verification since we've intentionally regenerated for this purpose
+          generate: false
           abi-version: 14
 
   fuzz:
