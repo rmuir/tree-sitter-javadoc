@@ -28,8 +28,9 @@ jobs:
     secrets:
       PYPI_API_TOKEN: ${{secrets.PYPI_API_TOKEN}}
     with:
-      abi-version: "15"
-      generate: false
+      # TODO: change to 15 when py-tree-sitter supports it
+      abi-version: "14"
+      generate: true
   npm:
     uses: tree-sitter/workflows/.github/workflows/package-npm.yml@6a7388cecfbc00765d032b2fca8f8abbe092ae8d
     secrets:

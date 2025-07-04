@@ -1,12 +1,23 @@
 from unittest import TestCase
 
-import tree_sitter
 import tree_sitter_javadoc
+
+from tree_sitter import Language, Parser
+
+
+def language():
+    return Language(tree_sitter_javadoc.language())
 
 
 class TestLanguage(TestCase):
     def test_can_load_grammar(self):
-        try:
-            tree_sitter.Language(tree_sitter_javadoc.language())
-        except Exception:
-            self.fail("Error loading Javadoc grammar")
+        _ = language()
+
+    def test_can_create_parser(self):
+        _ = Parser(language())
+
+    def test_can_parse_docs(self):
+        parser = Parser(language())
+        doc = "/** test */".encode()
+        tree = parser.parse(doc)
+        assert not tree.root_node.has_error

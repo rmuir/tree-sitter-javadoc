@@ -6,7 +6,7 @@ LANGUAGE_NAME := tree-sitter-javadoc
 HOMEPAGE_URL := https://github.com/rmuir/tree-sitter-javadoc
 VERSION := 0.1.1
 
-export TREE_SITTER_ABI_VERSION = 15
+export TREE_SITTER_ABI_VERSION ?= 15
 
 # repository
 SRC_DIR := src
