@@ -58,12 +58,39 @@ jobs:
         uses: tree-sitter/parser-test-action@d70d9d71114d35dda8e60e54604036a89f667a8c # v2
         with:
           test-go: true
-          test-python: true
+          # TODO: change to 'true' when py-tree-sitter supports it
+          test-python: false
           test-node: true
           test-rust: true
           # setup-swift fails GPG validation on linux
           test-swift: ${{runner.os == 'macOS'}}
           abi-version: ${{env.TREE_SITTER_ABI_VERSION}}
+
+  # TODO: remove when py-tree-sitter supports it
+  test-abi-14:
+    name: Test parser (python abi 14)
+    runs-on: ${{matrix.os}}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-15]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Set up tree-sitter
+        uses: tree-sitter/setup-action/cli@cd96f2c296346c12cf539df3e5cd00102a1f2340 # v2
+        with:
+          tree-sitter-ref: ${{env.TREE_SITTER_VERSION}}
+      - name: Regenerate parser
+        run: tree-sitter generate
+        env:
+          TREE_SITTER_ABI_VERSION: 14
+      - name: Run parser and binding tests
+        uses: tree-sitter/parser-test-action@d70d9d71114d35dda8e60e54604036a89f667a8c # v2
+        with:
+          test-python: true
+          abi-version: 14
+
   fuzz:
     name: Fuzz scanner
     runs-on: ubuntu-latest
