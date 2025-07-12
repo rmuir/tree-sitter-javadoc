@@ -4,7 +4,7 @@ permissions:
   contents: read
 
 env:
-  TREE_SITTER_VERSION: "v0.25.6"
+  TREE_SITTER_VERSION: "v0.25.7"
   TREE_SITTER_ABI_VERSION: "15"
   # arbitrary, for linting only
   NODE_VERSION: "22.16.0"
