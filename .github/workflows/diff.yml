@@ -2,6 +2,7 @@ name: Diff
 
 permissions:
   contents: read
+  pull-requests: write
 
 on:
   workflow_dispatch:
@@ -28,6 +29,9 @@ jobs:
         uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version-file: "injection_tests/pyproject.toml"
+      - name: Lint tests (PR)
+        run: make lint
+        working-directory: injection_tests
       - name: Parse corpora (PR)
         run: make -Otarget -j dump
         working-directory: injection_tests
@@ -36,8 +40,18 @@ jobs:
         with:
           ref: main
           path: main
+      - name: Lint tests (main)
+        run: make lint
+        working-directory: main/injection_tests
       - name: Parse corpora (main)
         run: make -Otarget -j dump
         working-directory: main/injection_tests
       - name: Diff parse trees
-        run: diff -u main/injection_tests/data/parse-dump.txt injection_tests/data/parse-dump.txt || true
+        run: |
+          if ! diff -u main/injection_tests/data/parse-dump.txt injection_tests/data/parse-dump.txt; then
+            if [ "${{ github.event_name }}" == "pull_request" ]; then
+              gh pr comment "${{ github.event.number }}" --body "This PR changes the parse results across corpora. Please review 'Diff parse trees' from the 'Diff corpora' job."
+            fi
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
