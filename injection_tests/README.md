@@ -6,7 +6,7 @@ It works similar to [tree-sitter/parse-action](https://github.com/tree-sitter/pa
 ## Background
 
 Treesitter has wonderful testing tools, but most do not work for injected languages.
-The core [unit testing facility](https://tree-sitter.github.io/tree-sitter/creating-parsers/5-writing-tests.html) [works fine](../test/corpus) works fine.
+The core [unit testing facility](https://tree-sitter.github.io/tree-sitter/creating-parsers/5-writing-tests.html) [works fine](../test/corpus).
 
 The [syntax highlighting](https://tree-sitter.github.io/tree-sitter/3-syntax-highlighting.html#unit-testing) can't easily work, it is geared at using comments, and javadocs are themselves comments.
 
