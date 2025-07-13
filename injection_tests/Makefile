@@ -61,14 +61,27 @@ data/%/.git/HEAD: data/.%.repo
 .PHONY: test
 test: $(TEST_CASES) ## Run test cases
 
+# Dumping syntax trees from git repositories
+TEST_TREES := $(patsubst data/%/.git/HEAD,%.tree,$(TEST_CHECKOUTS))
+
+# print syntax trees
+%.tree: data/%/.git/HEAD
+	# dump trees: $*
+	uv run injection_tester --print --cores 1 data/$* '*.java' > data/$*-parse.txt
+
+DUMP_OUTPUT := data/parse-dump.txt
+dump: $(TEST_TREES) ## Dump syntax trees to a file
+	# create combined tree dump: $(DUMP_OUTPUT)
+	cat data/*-parse.txt > $(DUMP_OUTPUT)
+
 # Development
 .PHONY: env
 env: ## Create virtual environment
 	uv venv
 
 .PHONY: clean
-clean: ## Remove virtual environment
-	rm -r .venv
+clean: ## Remove build files
+	rm -rf .venv data/*-parse.txt data/*-dump.txt
 
 # Help: ripped from cargo with small mods
 .PHONY: help

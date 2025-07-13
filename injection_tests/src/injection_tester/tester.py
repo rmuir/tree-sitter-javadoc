@@ -2,15 +2,20 @@
 """Parses javadocs in java files from a git repository."""
 
 import argparse
+import os
 import subprocess
 import sys
 import time
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import tree_sitter_java as tsjava
 import tree_sitter_javadoc as tsjavadoc
 from tree_sitter import Language, Node, Parser, Query, QueryCursor
+
+if TYPE_CHECKING:
+    from collections.abc import Callable
 
 java = Language(tsjava.language())
 javadoc = Language(tsjavadoc.language())
@@ -104,37 +109,59 @@ def check_syntax(file: str) -> list[str]:
     return errors
 
 
+def print_syntax(file: str) -> list[str]:
+    """Parse java file, look for javadoc injections, parse those, print trees."""
+    with Path.open(Path(file), "rb", buffering=0) as fd:
+        contents = fd.read()
+        java_parser.reset()
+        tree = java_parser.parse(contents)
+        cursor = QueryCursor(injection_query)
+        captures = cursor.captures(tree.root_node)
+        if nodelist := captures.get("injection.content"):
+            # sort captures for reproducibility/diff
+            nodelist.sort(key=lambda node: (node.start_byte, node.end_byte))
+            for node in nodelist:
+                javadoc_parser.reset()
+                subtree = javadoc_parser.parse(contents[node.start_byte : node.end_byte])
+                root = subtree.root_node_with_offset(node.start_byte, node.start_point)
+                assert root
+                print(f"{file}:{root.start_point.row + 1}:{root.start_point.column + 1}\n{root}\n")
+    return []
+
+
 def main() -> None:
     """CLI entrypoint."""
     start_time = time.monotonic()
     problems = 0
     count = 0
 
-    executor = ProcessPoolExecutor()
-
     parser = argparse.ArgumentParser(prog="injection_tester", description="tests javadoc injections")
+    parser.set_defaults(func=check_syntax)
+    _ = parser.add_argument("--cores", type=int, default=os.cpu_count(), help="number of CPU cores to use")
+    _ = parser.add_argument(
+        "--print", dest="func", action="store_const", const=print_syntax, help="print syntax trees only"
+    )
     _ = parser.add_argument("root", help="filesystem path to a git repository")
     _ = parser.add_argument("file", nargs="*", default=["*.java"], help="git patterns of files")
     args = parser.parse_args()
 
     root: str = args.root
+    func: Callable[[str], list[str]] = args.func
     files: list[str] = args.file
+    cores: int = args.cores
 
-    print(f"Scanning {files} in {root}...")
+    print(f"Scanning {files} in {root}...", file=sys.stderr)
     input_files = subprocess.Popen(["git", "ls-files", "--", *files], stdout=subprocess.PIPE, cwd=root)
 
     assert input_files.stdout
 
     lines = (str(Path(root) / line.strip().decode()) for line in input_files.stdout)
-    for results in executor.map(check_syntax, lines, chunksize=32):
-        count += 1
-        problems += len(results)
-        for problem in results:
-            print(problem)
-    print(f"Found {problems} problems in {count} files. ({time.monotonic() - start_time:.2f}s)")
+    with ProcessPoolExecutor(max_workers=cores) as executor:
+        for results in executor.map(func, lines, chunksize=32):
+            count += 1
+            problems += len(results)
+            for problem in results:
+                print(problem)
+    print(f"Found {problems} problems in {count} files. ({time.monotonic() - start_time:.2f}s)", file=sys.stderr)
     if problems or count == 0:
         sys.exit(1)
-
-
-if __name__ == "__main__":
-    main()

@@ -27,6 +27,7 @@ dev = [
 
 [project.scripts]
 injection_tester = "injection_tester:main"
+injection_parser = "injection_tester:parse"
 
 [project.urls]
 Homepage = "https://github.com/rmuir/tree-sitter-javadoc"
@@ -37,11 +38,16 @@ build-backend = "hatchling.build"
 
 [tool.pyright]
 pythonVersion = "3.10"
+exclude = [
+  "data",
+  ".venv"
+]
 typeCheckingMode = "all"
 reportAny = "hint"
 
 [tool.ruff]
 line-length = 120
+extend-exclude = ["data"]
 
 [tool.ruff.lint]
 select = ["ALL"]
@@ -68,6 +74,9 @@ division-by-zero = "warn"
 # rule is indeed not ready
 # possibly-unresolved-reference = "warn"
 unused-ignore-comment = "warn"
+
+[tool.ty.src]
+exclude = ["data"]
 
 [tool.ty.terminal]
 error-on-warning = true
