@@ -1,0 +1,2 @@
+# List of file match patterns passed to git-ls-files(1)
+*.java

@@ -18,6 +18,7 @@ dist/
 *.egg-info
 *.whl
 __pycache__
+.ruff_cache
 
 # C artifacts
 *.a

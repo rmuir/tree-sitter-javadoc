@@ -1,0 +1,2 @@
+# List of parameters passed to git-clone(1)
+https://github.com/junit-team/junit-framework.git --branch r5.13.3

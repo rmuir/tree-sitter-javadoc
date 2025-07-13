@@ -1,79 +1,76 @@
-# basic make safety: if error happens, delete output
-.DELETE_ON_ERROR:
-
-# explicitly declare shell used
+# standard dance to make make sane
 SHELL := /bin/bash
-
-# enforce that shell is picky
 .SHELLFLAGS := -norc -euo pipefail -c
+.DEFAULT_GOAL := help
 
-# don't litter up repo with bytecode
-export PYTHONDONTWRITEBYTECODE=true
+# all checks
+.PHONY: all
+all: lint test ## Run all checks: lint + test
 
-# don't self-check, don't ask questions
-PIP_INSTALL_ARGS=--disable-pip-version-check --no-input --upgrade
+# Linting
+.PHONY: lint lint-ruff lint-ruff-format lint-ruff-imports lint-ruff-problems lint-ty
+lint: lint-ruff lint-ty ## Lint problems in sources
 
-# venv with dependencies in the standard location
-VENV=${PWD}/.venv
+lint-ruff: lint-ruff-format lint-ruff-problems ## Check python with ruff
 
-# don't behave strangely if these files exist
-.PHONY: lint test format reformat ruff pyright _env env clean
+lint-ruff-format: ## Validate python formatting
+	# validate python formatting, 'make -k fix' will address issues
+	uv run ruff format --diff
 
-# list of directories we check
-SOURCES=$(wildcard *.py)
+lint-ruff-problems: ## Check python for problems
+	# check python for problems, 'make -k fix' may address some issues
+	uv run ruff check
 
-# check formatting, linting, and types
-lint: format ruff pyright
+lint-ty: ## Type-check python with ty
+	# check python types
+	uv run ty check
 
-# check all formatting
-format: env
-	# validate imports: if this fails, please run "make reformat" and commit changes.
-	$(VENV)/bin/ruff check --select I $(SOURCES)
-	# validate formatting: if this fails, please run "make reformat" and commit changes.
-	$(VENV)/bin/ruff format --diff $(SOURCES)
+# Autofixing
+.PHONY: fix fix-ruff fix-ruff-format fix-ruff-imports fix-ruff-problems
+fix: fix-ruff ## Fix problems in sources
 
-# reformat code to conventions
-reformat: env
-	# organize imports
-	$(VENV)/bin/ruff check --select I --fix $(SOURCES)
-	# reformat sources
-	$(VENV)/bin/ruff format $(SOURCES)
+.NOPARALLEL: fix-ruff
+fix-ruff: fix-ruff-problems fix-ruff-format ## Fix python with ruff
 
-# lints sources
-ruff: env
-	# validate sources with ruff linter
-	$(VENV)/bin/ruff check $(SOURCES)
+fix-ruff-format: ## Fix python formatting
+	# reformat python sources
+	uv run ruff format
 
-# checks types
-pyright: env
-	# type-check sources with basedpyright
-	$(VENV)/bin/basedpyright $(SOURCES)
+fix-ruff-problems: ## Fix python problems
+	# autofix python sources: safe fixes only
+	uv run ruff check --fix
 
-# rebuild venv if dependencies change
-_env: $(VENV)/bin/activate
-$(VENV)/bin/activate: requirements.txt
-	# remove any existing venv
-	rm -rf $(VENV)
-	# create new venv
-	python3 -m venv $(VENV)
-	# install dependencies into venv
-	$(VENV)/bin/pip install $(PIP_INSTALL_ARGS) -r requirements.txt
-	# adjust timestamp for safety
-	touch $(VENV)/bin/activate
+# Testing git repositories
+TEST_REPOS := $(wildcard data/.*.repo)
+TEST_CHECKOUTS := $(patsubst data/.%.repo,data/%/.git/HEAD,$(TEST_REPOS))
+TEST_CASES := $(patsubst data/%/.git/HEAD,%.testcase,$(TEST_CHECKOUTS))
 
-# nuke venv
-clean:
-	rm -rf $(VENV)
+# checks out a repository
+.PRECIOUS: data/%/.git/HEAD
+data/%/.git/HEAD: data/.%.repo
+	# remove stale data: $*
+	rm -rf data/$*
+	# checkout: $*
+	grep -v '#' $< | (cd data && xargs git clone --depth 1 --single-branch --filter=blob:none)
 
-# creates venv, creates wheel, puts wheel into our venv
-# man is python overly complex here
-env: _env $(VENV)/bin/.wheel
-$(VENV)/bin/.wheel: ../grammar.js
-	# build parser
-	(cd .. && make)
-	# build wheel
-	(cd .. && $(VENV)/bin/python setup.py bdist_wheel)
-	# (re)install newly built wheel
-	$(VENV)/bin/pip install --force-reinstall $(PIP_INSTALL_ARGS) ../dist/*.whl
-	# adjust timestamp
-	touch $(VENV)/bin/.wheel
+# run injection tests on a repository
+%.testcase: data/%/.git/HEAD
+	# run test: $*
+	grep -v '^#' data/.$*.patterns | xargs uv run injection_tester data/$*
+
+.PHONY: test
+test: $(TEST_CASES) ## Run test cases
+
+# Development
+.PHONY: env
+env: ## Create virtual environment
+	uv venv
+
+.PHONY: clean
+clean: ## Remove virtual environment
+	rm -r .venv
+
+# Help: ripped from cargo with small mods
+.PHONY: help
+help: ## Display this help screen
+	@grep -E '^[a-z.A-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'

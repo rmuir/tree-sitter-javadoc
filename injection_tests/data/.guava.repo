@@ -1,0 +1,2 @@
+# List of parameters passed to git-clone(1)
+https://github.com/google/guava.git --branch v33.4.8

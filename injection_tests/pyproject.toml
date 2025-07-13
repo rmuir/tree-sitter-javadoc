@@ -1,17 +1,57 @@
+[project]
+name = "injection_tester"
+version = "0.0.1"
+description = "javadoc injection tester"
+keywords = ["incremental", "parsing", "tree-sitter", "java", "javadoc"]
+classifiers = [
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Compilers",
+  "Topic :: Text Processing :: Linguistic",
+  "Typing :: Typed",
+]
+authors = [{ name = "Robert Muir", email = "rmuir@apache.org" }]
+requires-python = ">=3.10"
+license.text = "MIT"
+readme = "README.md"
+dependencies = [
+  "tree-sitter",
+  "tree-sitter-javadoc",
+  "tree-sitter-java>=0.23.5",
+]
+
+[dependency-groups]
+dev = [
+  "ruff==0.12.2",
+  "ty==0.0.1-alpha.14",
+]
+
+[project.scripts]
+injection_tester = "injection_tester:main"
+
+[project.urls]
+Homepage = "https://github.com/rmuir/tree-sitter-javadoc"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [tool.pyright]
-pythonVersion = "3.12"
-venvPath = "."
-venv = ".venv"
-typeCheckingMode = "standard"
+pythonVersion = "3.10"
+typeCheckingMode = "all"
+reportAny = "hint"
 
 [tool.ruff]
-target-version = "py312"
-line-length = 200
-indent-width = 4
+line-length = 120
 
 [tool.ruff.lint]
-# disabling/enabling of rules
+select = ["ALL"]
 ignore = [
+  "S603",    # git is used
+  "S607",    # git is used
+  "S101",    # assertions are good
+  "T201",    # prints are useful
+  "ERA001",  # sometimes code must be commented out to debug
+
   # These rules are always disabled, conflict with other rules
   # don't enable! (switch to the alternative instead)
   "D203",    # disabled in favor of D211 (no-black-line-before-class)
@@ -22,3 +62,19 @@ ignore = [
   "W191", "E111", "E114", "E117", "D206", "D300", "Q000", "Q001",
   "Q002", "Q003", "COM812", "COM819", "ISC001", "ISC002", "E501",
 ]
+
+[tool.ty.rules]
+division-by-zero = "warn"
+# rule is indeed not ready
+# possibly-unresolved-reference = "warn"
+unused-ignore-comment = "warn"
+
+[tool.ty.terminal]
+error-on-warning = true
+
+[tool.uv.sources]
+# use git version of py-tree-sitter for now
+tree-sitter.git = "https://github.com/tree-sitter/py-tree-sitter"
+tree-sitter.rev = "c1bd563b330b2c2fe9894beb652bc58ae8613b0c"
+# use tree-sitter-javadoc from parent directory
+tree-sitter-javadoc.path = "../"
