@@ -52,3 +52,5 @@ jobs:
               gh pr comment "${{ github.event.number }}" --body "This PR changes the parse results across corpora. Please review diff-corpora results."
             fi
           fi
+        env:
+          GH_TOKEN: ${{ github.token }}
