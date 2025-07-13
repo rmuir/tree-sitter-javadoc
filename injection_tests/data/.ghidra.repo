@@ -1,0 +1,2 @@
+# List of parameters passed to git-clone(1)
+https://github.com/NationalSecurityAgency/ghidra.git --branch Ghidra_11.4_build

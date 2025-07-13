@@ -1,0 +1,26 @@
+# List of file match patterns passed to git-ls-files(1)
+*.java
+# invalid link tag, but can it be allowed?
+:!**/DebuggerLogicalBreakpointService.java
+# malformed link tags
+:!**/DBCachedDomainObjectAdapter.java
+# malformed link tags
+:!**/DBCachedObjectStoreFactory.java
+# malformed link tags
+:!**/TraceRmiServiceListener.java
+# malformed link tag
+:!**/TopologicalSorter.java
+# malformed see tag
+:!**/OldLanguage.java
+# malformed link tags, maybe some can be allowed
+:!**/AbstractAssemblyTest.java
+# malformed link tags, maybe some can be allowed
+:!**/AssemblyTestCase.java
+# malformed see tag, cascades into subsequent link tag 
+:!**/FdtHeader.java
+# BUG! space issue in reference links
+:!**/BitmapResource.java
+# BUG! space issue in reference links
+:!**/AbstractStringDataType.java
+# BUG? can't triage this at a glance, see nothing wrong
+:!**/BaseRelocation.java

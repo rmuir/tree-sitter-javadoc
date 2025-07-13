@@ -72,7 +72,7 @@ def format_errors(file: str, contents: bytes, java_node: Node, root: Node) -> li
     assert nodelist
     for node in nodelist:
         location = f"{file}:{node.start_point.row + 1}:{node.start_point.column + 1}"
-        text = contents.splitlines()[node.start_point.row].decode()
+        text = contents.splitlines()[node.start_point.row].decode().expandtabs(tabsize=1)
         length = 1 + (
             node.end_point.column - node.start_point.column
             if node.end_point.row == node.start_point.row
