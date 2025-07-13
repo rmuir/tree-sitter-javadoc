@@ -2,5 +2,3 @@
 *.java
 # torture of valid characters, possibly invalid but let's try
 :!**/Functions.java
-# BUG! space issue in reference links
-:!**/Shell.java
