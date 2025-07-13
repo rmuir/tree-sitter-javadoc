@@ -1,0 +1,2 @@
+# List of parameters passed to git-clone(1)
+https://github.com/FasterXML/jackson-core.git --branch jackson-core-2.19.1

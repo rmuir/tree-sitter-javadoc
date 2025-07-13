@@ -1,0 +1,2 @@
+# List of parameters passed to git-clone(1)
+https://github.com/spring-projects/spring-framework.git --branch v6.2.8

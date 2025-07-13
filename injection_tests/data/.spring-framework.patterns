@@ -1,0 +1,6 @@
+# List of file match patterns passed to git-ls-files(1)
+*.java
+# link reference with generic type
+:!**/LoadingCache.java
+# unclosed inline tags
+:!**/AotContextLoaderTests.java

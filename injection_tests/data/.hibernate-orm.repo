@@ -1,0 +1,2 @@
+# List of parameters passed to git-clone(1)
+https://github.com/hibernate/hibernate-orm.git --branch 7.0.6

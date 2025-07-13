@@ -11,7 +11,7 @@ Features:
 * `@nospell` set for javadocs syntax regions, so you don't have to turn spellcheck off anymore
 * Injection queries for `@snippet`, `@value`
 * Support for custom inline and block doclet tags
-* Tested on heaps of java code, popular open source codebases
+* Tested on heaps of java code, [popular open source codebases](injection_tests/)
 * Not perfect, but javadocs parsing is a dirty business
 
 ## Neovim Installation (for use in your editor)

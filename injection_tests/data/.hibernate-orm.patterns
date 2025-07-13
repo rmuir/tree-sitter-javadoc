@@ -1,0 +1,12 @@
+# List of file match patterns passed to git-ls-files(1)
+*.java
+# unclosed inline tag
+:!**/SQLServer2012DialectTestCase.java
+# invalid reference link
+:!**/JakartaSchemaToolingSettingPrecedenceTests.java
+# invalid see tag with nothing at all
+:!**/SequenceReadingTest.java
+# BUG? throws tag with description of '.'
+:!**/ClassLoaderServiceImplTest.java
+# reference link containing generics
+:!**/StringCaseInsensitiveComparator.java
