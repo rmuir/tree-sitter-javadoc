@@ -1,4 +1,4 @@
-"""main module exposing cli."""
+"""main module exposing CLIs."""
 
 from .tester import main
 
