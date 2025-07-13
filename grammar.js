@@ -144,7 +144,12 @@ module.exports = grammar({
     link_tag: $ => seq(
       field('name', alias(choice('@link', '@linkplain'), $.tag_name)),
       field('reference', $.reference),
-      optional(seq($._space, field('label', alias($.inline_description, $.description)))),
+      optional(
+        seq(
+          $._space,
+          optional(field('label', alias($.inline_description, $.description))),
+        ),
+      ),
     ),
 
     literal_tag: $ => seq(

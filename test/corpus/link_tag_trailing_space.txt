@@ -1,0 +1,17 @@
+===
+link tag: description with trailing space
+===
+
+/**
+ * {@link #member }
+ */
+
+---
+
+(document
+  (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (identifier))))))

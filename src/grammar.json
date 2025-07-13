@@ -581,17 +581,25 @@
                   "name": "_space"
                 },
                 {
-                  "type": "FIELD",
-                  "name": "label",
-                  "content": {
-                    "type": "ALIAS",
-                    "content": {
-                      "type": "SYMBOL",
-                      "name": "inline_description"
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "FIELD",
+                      "name": "label",
+                      "content": {
+                        "type": "ALIAS",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "inline_description"
+                        },
+                        "named": true,
+                        "value": "description"
+                      }
                     },
-                    "named": true,
-                    "value": "description"
-                  }
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
                 }
               ]
             },

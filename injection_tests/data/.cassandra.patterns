@@ -1,8 +1,4 @@
 # List of file match patterns passed to git-ls-files(1)
 *.java
-# BUG! space issue in reference links
-:!**/Memtable.java
-# BUG! space issue in reference links
-:!**/OutboundMessageQueue.java
 # invalid block tag
 :!**/IndexTransaction.java
