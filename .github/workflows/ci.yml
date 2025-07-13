@@ -100,7 +100,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Run the fuzzer
-        uses: tree-sitter/fuzz-action@fed03629510ae8b9a690db5466a29ce41be9bf56 # v4
+        uses: tree-sitter/fuzz-action@6a1dcff00aefd038ba418bd63732a9add4901266 # v4
 
   corpora:
     name: Parse corpora
