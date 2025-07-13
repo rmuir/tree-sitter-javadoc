@@ -55,7 +55,7 @@ jobs:
         with:
           tree-sitter-ref: ${{env.TREE_SITTER_VERSION}}
       - name: Run parser and binding tests
-        uses: tree-sitter/parser-test-action@d70d9d71114d35dda8e60e54604036a89f667a8c # v2
+        uses: tree-sitter/parser-test-action@1f7ad83f2358970a13cd62ca1859eafc3326d669 # v2
         with:
           test-go: true
           # TODO: change to 'true' when py-tree-sitter supports it
@@ -86,7 +86,7 @@ jobs:
         env:
           TREE_SITTER_ABI_VERSION: 14
       - name: Run parser and binding tests
-        uses: tree-sitter/parser-test-action@d70d9d71114d35dda8e60e54604036a89f667a8c # v2
+        uses: tree-sitter/parser-test-action@1f7ad83f2358970a13cd62ca1859eafc3326d669 # v2
         with:
           test-python: true
           # disable verification since we've intentionally regenerated for this purpose
