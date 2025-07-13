@@ -42,7 +42,7 @@ jobs:
       - name: Diff parse trees
         run: |
           if ! diff -u main/injection_tests/data/parse-dump.txt injection_tests/data/parse-dump.txt; then
-            if [ ${{ github.event_name }} == "pull_request ]; then
-              gh pr comment ${{ github.event.number }} --body "This PR changes the parse results across corpora. Please review diff-corpora results."
+            if [ "${{ github.event_name }}" == "pull_request" ]; then
+              gh pr comment "${{ github.event.number }}" --body "This PR changes the parse results across corpora. Please review diff-corpora results."
             fi
           fi
