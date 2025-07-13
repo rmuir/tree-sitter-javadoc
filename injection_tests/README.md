@@ -46,13 +46,13 @@ https://github.com/apache/lucene.git --branch releases/lucene/10.2.2
 
 ## Features
 
-* Parallel execution (cloning and testing): `make -Otarget -j test`
+* Parallel execution (cloning, testing, diffing): `make -Otarget -j test`, `make -Otarget -j dump`
 * Parallel parsing with subprocesses to bypass GIL
 * Repos pinned to repository tags
 * Ability to ignore certain patterns such as tests
 * No git submodules (can mess up cargo checkouts)
+* Produces diff of parse trees across corpora on pull requests
 
 ## Limitations
 
 * Currently only old-style javadocs
-* Only checks for parse errors
