@@ -87,3 +87,7 @@ tree-sitter.git = "https://github.com/tree-sitter/py-tree-sitter"
 tree-sitter.rev = "c1bd563b330b2c2fe9894beb652bc58ae8613b0c"
 # use tree-sitter-javadoc from parent directory
 tree-sitter-javadoc.path = "../"
+
+[tool.uv]
+# reinstall package every time (cache keys can likely be setup)
+reinstall-package = ["tree-sitter-javadoc"]
