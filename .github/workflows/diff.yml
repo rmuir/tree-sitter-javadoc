@@ -50,7 +50,7 @@ jobs:
         run: |
           if ! diff -u main/injection_tests/data/parse-dump.txt injection_tests/data/parse-dump.txt; then
             if [ "${{ github.event_name }}" == "pull_request" ]; then
-              gh pr comment "${{ github.event.number }}" --body "This PR changes the parse results across corpora. Please review diff-corpora results."
+              gh pr comment "${{ github.event.number }}" --body "This PR changes the parse results across corpora. Please review 'Diff parse trees' from the 'Diff corpora' job."
             fi
           fi
         env:
