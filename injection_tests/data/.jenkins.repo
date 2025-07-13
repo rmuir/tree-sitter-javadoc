@@ -1,0 +1,2 @@
+# List of parameters passed to git-clone(1)
+https://github.com/jenkinsci/jenkins.git --branch jenkins-2.518
