@@ -27,3 +27,12 @@ core = ["tree-sitter~=0.24"]
 [tool.cibuildwheel]
 build = "cp310-*"
 build-frontend = "build"
+
+[tool.uv]
+# invalid local cache if the C code changes
+cache-keys = [
+  { file = "pyproject.toml" },
+  { file = "setup.py" },
+  { file = "src/parser.c" },
+  { file = "src/scanner.c" },
+]
