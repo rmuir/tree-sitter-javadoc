@@ -8,7 +8,7 @@ SHELL := /bin/bash
 all: lint test ## Run all checks: lint + test
 
 # Linting
-.PHONY: lint lint-ruff lint-ruff-format lint-ruff-imports lint-ruff-problems lint-ty
+.PHONY: lint lint-ruff lint-ruff-format lint-ruff-problems lint-ty
 lint: lint-ruff lint-ty ## Lint problems in sources
 
 lint-ruff: lint-ruff-format lint-ruff-problems ## Check python with ruff
@@ -26,7 +26,7 @@ lint-ty: ## Type-check python with ty
 	uv run ty check
 
 # Autofixing
-.PHONY: fix fix-ruff fix-ruff-format fix-ruff-imports fix-ruff-problems
+.PHONY: fix fix-ruff fix-ruff-format fix-ruff-problems
 fix: fix-ruff ## Fix problems in sources
 
 .NOPARALLEL: fix-ruff
