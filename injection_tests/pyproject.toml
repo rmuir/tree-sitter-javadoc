@@ -19,18 +19,18 @@ dependencies = [
   "tree-sitter-java>=0.23.5",
 ]
 
-[dependency-groups]
-dev = [
-  "ruff==0.12.2",
-  "ty==0.0.1-alpha.14",
-]
-
 [project.scripts]
 injection_tester = "injection_tester:main"
 injection_parser = "injection_tester:parse"
 
 [project.urls]
 Homepage = "https://github.com/rmuir/tree-sitter-javadoc"
+
+[dependency-groups]
+dev = [
+  "ruff==0.12.2",
+  "ty==0.0.1-alpha.14",
+]
 
 [build-system]
 requires = ["hatchling"]
@@ -42,6 +42,8 @@ exclude = [
   "data",
   ".venv"
 ]
+venvPath = "."
+venv = ".venv"
 typeCheckingMode = "all"
 reportAny = "hint"
 
