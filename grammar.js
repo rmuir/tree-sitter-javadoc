@@ -38,11 +38,7 @@ module.exports = grammar({
         $._multiline_begin,
         optional($.description),
         repeat($.block_tag),
-        $._multiline_end,
-      ),
-      seq(
-        $._multiline_begin,
-        optional(choice($.description, $.block_tag)),
+        optional($._multiline_end),
       ),
       seq(
         $._singleline_begin,

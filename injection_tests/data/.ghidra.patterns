@@ -18,5 +18,3 @@
 :!**/AssemblyTestCase.java
 # malformed see tag, cascades into subsequent link tag 
 :!**/FdtHeader.java
-# BUG? can't triage this at a glance, see nothing wrong
-:!**/BaseRelocation.java
