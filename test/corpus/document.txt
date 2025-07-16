@@ -46,3 +46,18 @@ document: two lines
 
 (document
   (description))
+
+===
+document: multi-line in disguise w/ block tag
+===
+
+/** test
+ * @deprecated problem */
+
+---
+
+(document
+  (description)
+  (deprecated_tag
+    (tag_name)
+    (description)))

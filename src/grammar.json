@@ -32,33 +32,11 @@
               }
             },
             {
-              "type": "SYMBOL",
-              "name": "_multiline_end"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_multiline_begin"
-            },
-            {
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "description"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "block_tag"
-                    }
-                  ]
+                  "type": "SYMBOL",
+                  "name": "_multiline_end"
                 },
                 {
                   "type": "BLANK"
