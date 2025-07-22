@@ -4,6 +4,7 @@
     "grammar.js"
   ],
   "compilerOptions": {
+    "noEmit": true,
     "target": "es2024",
     "skipLibCheck": true,
     "allowJs": true,
