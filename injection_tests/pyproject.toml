@@ -14,7 +14,7 @@ requires-python = ">=3.10"
 license.text = "MIT"
 readme = "README.md"
 dependencies = [
-  "tree-sitter",
+  "tree-sitter>=0.25",
   "tree-sitter-javadoc",
   "tree-sitter-java>=0.23.5",
 ]
@@ -29,7 +29,7 @@ Homepage = "https://github.com/rmuir/tree-sitter-javadoc"
 [dependency-groups]
 dev = [
   "ruff==0.12.2",
-  "ty==0.0.1-alpha.14",
+  "ty==0.0.1-alpha.15",
 ]
 
 [build-system]
@@ -84,8 +84,5 @@ exclude = ["data"]
 error-on-warning = true
 
 [tool.uv.sources]
-# use git version of py-tree-sitter for now
-tree-sitter.git = "https://github.com/tree-sitter/py-tree-sitter"
-tree-sitter.rev = "c1bd563b330b2c2fe9894beb652bc58ae8613b0c"
 # use tree-sitter-javadoc from parent directory
 tree-sitter-javadoc.path = "../"
