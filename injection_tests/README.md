@@ -52,7 +52,3 @@ https://github.com/apache/lucene.git --branch releases/lucene/10.2.2
 * Ability to ignore certain patterns such as tests
 * No git submodules (can mess up cargo checkouts)
 * Produces diff of parse trees across corpora on pull requests
-
-## Limitations
-
-* Currently only old-style javadocs

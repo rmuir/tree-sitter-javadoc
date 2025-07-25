@@ -26,6 +26,9 @@ injection_query = Query(
     """
 ((block_comment) @injection.content
   (#match? @injection.content "^/[*][*][^*]"))
+
+((line_comment) @injection.content
+  (#match? @injection.content "^///[ ]"))
 """,
 )
 error_query = Query(
