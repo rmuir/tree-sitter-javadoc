@@ -1,6 +1,7 @@
 module github.com/rmuir/tree-sitter-javadoc
 
-go 1.22
+go 1.23
+
 toolchain go1.24.1
 
 require github.com/tree-sitter/go-tree-sitter v0.25.0
