@@ -1,26 +1,28 @@
 name: Diff
 
-permissions:
-  contents: read
-  pull-requests: write
-
 on:
   workflow_dispatch:
   pull_request:
     branches:
       - '*'
 
+permissions: {}
+
 concurrency:
-  group: ${{github.workflow}}-${{github.ref}}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   diff-corpora:
     name: Diff corpora
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write # adds comment to pull request
     steps:
       - name: Checkout repository
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
       - name: Install uv
         uses: astral-sh/setup-uv@b75a909f75acd358c2196fb9a5f1299a9a8868a4 # v6.7.0
         with:
@@ -40,6 +42,7 @@ jobs:
         with:
           ref: main
           path: main
+          persist-credentials: false
       - name: Lint tests (main)
         run: make lint
         working-directory: main/injection_tests
@@ -49,9 +52,11 @@ jobs:
       - name: Diff parse trees
         run: |
           if ! diff -u main/injection_tests/data/parse-dump.txt injection_tests/data/parse-dump.txt; then
-            if [ "${{ github.event_name }}" == "pull_request" ]; then
-              gh pr comment "${{ github.event.number }}" --body "This PR changes the parse results across corpora. Please review 'Diff parse trees' from the 'Diff corpora' job."
+            if [ "${GH_EVENT_NAME}" == "pull_request" ]; then
+              gh pr comment "${GH_EVENT_NUMBER}" --body "This PR changes the parse results across corpora. Please review 'Diff parse trees' from the 'Diff corpora' job."
             fi
           fi
         env:
           GH_TOKEN: ${{ github.token }}
+          GH_EVENT_NAME: ${{ github.event_name }}
+          GH_EVENT_NUMBER: ${{ github.event.number }}
