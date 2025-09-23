@@ -28,8 +28,8 @@ Homepage = "https://github.com/rmuir/tree-sitter-javadoc"
 
 [dependency-groups]
 dev = [
-  "ruff==0.12.2",
-  "ty==0.0.1-alpha.15",
+  "ruff==0.13.1",
+  "ty==0.0.1-alpha.21",
 ]
 
 [build-system]
