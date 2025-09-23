@@ -14,7 +14,7 @@ permissions: {}
 
 jobs:
   actionlint:
-    name: Lint workflows
+    name: Run actionlint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
