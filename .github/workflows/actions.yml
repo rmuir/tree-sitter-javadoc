@@ -11,6 +11,8 @@ on:
       - main
     paths:
       - '.github/**'
+  schedule:
+    - cron: '22 2 * * *'
 
 permissions: {}
 
@@ -44,6 +46,12 @@ jobs:
         with:
           persist-credentials: false
       - name: Run zizmor
-        uses: zizmorcore/zizmor-action@e673c3917a1aef3c65c972347ed84ccd013ecda4 # v0.2.0
+        run: uvx zizmor --pedantic --format=sarif . > results.sarif
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ZIZMOR_OFFLINE: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@3599b3baa15b485a2e49ef411a7a4bb2452e7f93 # v3.30.5
         with:
-          persona: pedantic
+          sarif_file: results.sarif
+          category: zizmor
