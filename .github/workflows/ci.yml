@@ -66,6 +66,7 @@ jobs:
           go-version: 1.23
           test-python: true
           test-node: true
+          node-version: ${{ env.NODE_VERSION }}
           test-rust: true
           # setup-swift fails GPG validation on linux
           test-swift: ${{ runner.os == 'macOS' }}
