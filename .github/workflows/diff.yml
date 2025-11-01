@@ -9,13 +9,14 @@ on:
 permissions: {}
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
   diff-corpora:
     name: Diff corpora
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       pull-requests: write # adds comment to pull request
     steps:
