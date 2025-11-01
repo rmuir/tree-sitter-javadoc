@@ -110,7 +110,7 @@ wheels = [
 
 [[package]]
 name = "tree-sitter-javadoc"
-version = "0.2.3"
+version = "0.2.4"
 source = { directory = "../" }
 
 [package.metadata]
