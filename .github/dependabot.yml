@@ -4,7 +4,6 @@ updates:
     directory: /
     schedule:
       interval: monthly
-      day: sunday
     commit-message:
       prefix: ci
     labels:
@@ -15,7 +14,6 @@ updates:
     directory: /
     schedule:
       interval: monthly
-      day: sunday
     commit-message:
       prefix: build(deps)
     labels:
@@ -25,7 +23,6 @@ updates:
     directory: /
     schedule:
       interval: monthly
-      day: sunday
     commit-message:
       prefix: build(deps)
     labels:
@@ -35,7 +32,6 @@ updates:
     directory: /
     schedule:
       interval: monthly
-      day: sunday
     commit-message:
       prefix: build(deps)
     labels:
@@ -45,7 +41,6 @@ updates:
     directory: /injection_tests
     schedule:
       interval: monthly
-      day: sunday
     commit-message:
       prefix: build(deps)
     labels:
@@ -55,7 +50,6 @@ updates:
     directory: /
     schedule:
       interval: monthly
-      day: sunday
     commit-message:
       prefix: build(deps)
     labels:
@@ -65,7 +59,6 @@ updates:
     directory: /
     schedule:
       interval: monthly
-      day: sunday
     commit-message:
       prefix: build(deps)
     labels:
