@@ -20,15 +20,15 @@ Example addition of a new repo (Apache Lucene):
 
 1. Create `data/.lucene.repo` containing parameters for cloning:
 
-```
+```text
 # List of parameters passed to git-clone(1)
 # Specify a tag to keep CI stable
 https://github.com/apache/lucene.git --branch releases/lucene/10.2.2
 ```
 
-2. Create `data/.lucene.patterns` containing patterns to match files:
+1. Create `data/.lucene.patterns` containing patterns to match files:
 
-```
+```text
 # List of file match patterns passed to git-ls-files(1)
 # Include all java sources
 *.java

@@ -5,6 +5,7 @@ Javadoc grammar for [tree-sitter](https://github.com/tree-sitter/tree-sitter)
 ## About
 
 Features:
+
 * Complete old-school HTML (`/**`)
 * Basic new-school Markdown (`///`) support
 * Highlight queries, especially for those important/pesky `@see` and `@link` references
@@ -17,9 +18,11 @@ Features:
 ## Neovim Installation (for use in your editor)
 
 Install [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter), then from neovim:
-```
+
+```text
 :TSInstall java javadoc html css printf comment
 ```
+
 It is recommended to install at least these parsers for treesitter support of java code.
 
 ## Bindings Installation (for development)
@@ -38,6 +41,7 @@ Many treesitter parsers do this, including java, but neovim is trying to move aw
 If you use an LSP with semantic token support, you don't need this. Otherwise, it might be useful to you.
 
 `~/.config/nvim/queries/javadoc/highlights.scm`:
+
 ```tsq
 ;; extends
 
@@ -63,6 +67,7 @@ The default highlighting incorporates highlighting of HTML and markdown tags via
 For a more minimal approach with just highlighting of block and inline tags, you can override the injections.
 
 `~/.config/nvim/queries/javadoc/injections.scm`:
+
 ```tsq
 ; overriding with an empty query file to disable injections
 ```
