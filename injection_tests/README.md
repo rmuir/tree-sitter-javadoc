@@ -18,7 +18,7 @@ This module solves the parsing problem, so that large corpora can be tested in C
 
 Example addition of a new repo (Apache Lucene):
 
-1. Create `data/.lucene.repo` containing parameters for cloning:
+* Create `data/.lucene.repo` containing parameters for cloning:
 
 ```text
 # List of parameters passed to git-clone(1)
@@ -26,7 +26,7 @@ Example addition of a new repo (Apache Lucene):
 https://github.com/apache/lucene.git --branch releases/lucene/10.2.2
 ```
 
-1. Create `data/.lucene.patterns` containing patterns to match files:
+* Create `data/.lucene.patterns` containing patterns to match files:
 
 ```text
 # List of file match patterns passed to git-ls-files(1)
