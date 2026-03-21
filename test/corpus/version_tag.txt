@@ -14,12 +14,37 @@ version tag
     (description)))
 
 ===
+version tag: markdown
+===
+
+/// @version My Special 1.0
+
+---
+
+(document
+  (version_tag
+    (tag_name)
+    (description)))
+
+===
 version tag: missing description
 ===
 
 /**
  * @version
  */
+
+---
+
+(document
+  (version_tag
+    (tag_name)))
+
+===
+version tag: markdown missing description
+===
+
+/// @version
 
 ---
 

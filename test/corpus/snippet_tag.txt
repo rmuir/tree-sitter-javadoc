@@ -22,6 +22,27 @@ snippet tag
     (description))))
 
 ===
+snippet tag: markdown
+===
+
+/// {@snippet lang=c :
+///   printf("foo bar");
+/// }
+
+---
+
+(document
+  (markdown_description
+  (snippet_tag
+    (tag_name)
+    (attributes
+      (attribute
+        (identifier)
+        (attribute_value
+          (identifier))))
+    (description))))
+
+===
 snippet tag: quoted
 ===
 
@@ -46,6 +67,28 @@ snippet tag: quoted
     (description))))
 
 ===
+snippet tag: markdown quoted
+===
+
+/// {@snippet lang="c" :
+///   printf("foo bar");
+/// }
+
+---
+
+(document
+  (markdown_description
+  (snippet_tag
+    (tag_name)
+    (attributes
+      (attribute
+        (identifier)
+        (attribute_value
+          (string_literal
+            (quoted_value)))))
+    (description))))
+
+===
 snippet tag: two attributes
 ===
 
@@ -59,6 +102,31 @@ snippet tag: two attributes
 
 (document
   (description
+  (snippet_tag
+    (tag_name)
+    (attributes
+      (attribute
+        (identifier)
+        (attribute_value
+          (identifier)))
+      (attribute
+        (identifier)
+        (attribute_value
+          (identifier))))
+    (description))))
+
+===
+snippet tag: markdown two attributes
+===
+
+/// {@snippet lang=c other=somethingelse:
+///   printf("foo bar");
+/// }
+
+---
+
+(document
+  (markdown_description
   (snippet_tag
     (tag_name)
     (attributes

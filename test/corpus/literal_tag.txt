@@ -15,6 +15,20 @@ literal tag
       (literal))))
 
 ===
+literal tag: markdown
+===
+
+/// {@literal test}
+
+---
+
+(document
+  (markdown_description
+    (literal_tag
+      (tag_name)
+      (literal))))
+
+===
 literal tag: without any literal
 ===
 
@@ -28,4 +42,16 @@ literal tag: without any literal
   (description
     (literal_tag
       (tag_name))))
-   
+
+===
+literal tag: markdown without any literal
+===
+
+/// {@literal}
+
+---
+
+(document
+  (markdown_description
+    (literal_tag
+      (tag_name))))

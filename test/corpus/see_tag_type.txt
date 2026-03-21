@@ -19,12 +19,47 @@ see tag: type + label
     (description)))
 
 ===
+see tag: markdown type + label
+===
+
+/// @see java.lang.System label
+
+---
+
+(document
+  (see_tag
+    (tag_name)
+    (reference
+      (type
+        (identifier)
+        (identifier)
+        (identifier)))
+    (description)))
+
+===
 see tag: type
 ===
 
 /**
  * @see java.lang.System
  */
+
+---
+
+(document
+  (see_tag
+    (tag_name)
+    (reference
+      (type
+        (identifier)
+        (identifier)
+        (identifier)))))
+
+===
+see tag: markdown type
+===
+
+/// @see java.lang.System
 
 ---
 

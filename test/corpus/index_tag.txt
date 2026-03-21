@@ -16,6 +16,21 @@ index tag: word
       (description))))
 
 ===
+index tag: markdown word
+===
+
+/// {@index word description}
+
+---
+
+(document
+  (markdown_description
+    (index_tag
+      (tag_name)
+      (indexword)
+      (description))))
+
+===
 index tag: word missing description
 ===
 
@@ -27,6 +42,20 @@ index tag: word missing description
 
 (document
   (description
+    (index_tag
+      (tag_name)
+      (indexword))))
+
+===
+index tag: markdown word missing description
+===
+
+/// {@index word}
+
+---
+
+(document
+  (markdown_description
     (index_tag
       (tag_name)
       (indexword))))
@@ -50,6 +79,22 @@ index tag: phrase
       (description))))
 
 ===
+index tag: markdown phrase
+===
+
+/// {@index "a phrase" description}
+
+---
+
+(document
+  (markdown_description
+    (index_tag
+      (tag_name)
+      (string_literal
+        (quoted_value))
+      (description))))
+
+===
 index tag: phrase missing description
 ===
 
@@ -61,6 +106,21 @@ index tag: phrase missing description
 
 (document
   (description
+    (index_tag
+      (tag_name)
+      (string_literal
+        (quoted_value)))))
+
+===
+index tag: markdown phrase missing description
+===
+
+/// {@index "a phrase"}
+
+---
+
+(document
+  (markdown_description
     (index_tag
       (tag_name)
       (string_literal

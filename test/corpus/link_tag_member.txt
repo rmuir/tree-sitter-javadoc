@@ -18,6 +18,23 @@ link tag: member + label
       (description))))
 
 ===
+link tag: markdown member + label
+===
+
+/// {@link #member label}
+
+---
+
+(document
+  (markdown_description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (identifier)))
+      (description))))
+
+===
 link tag: member
 ===
 
@@ -29,6 +46,22 @@ link tag: member
 
 (document
   (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (identifier))))))
+
+===
+link tag: markdown member
+===
+
+/// {@link #member}
+
+---
+
+(document
+  (markdown_description
     (link_tag
       (tag_name)
       (reference
@@ -55,6 +88,23 @@ link tag: member + label: without hash
       (description))))
 
 ===
+link tag: markdown member + label: without hash
+===
+
+/// {@link member label}
+
+---
+
+(document
+  (markdown_description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (identifier)))
+      (description))))
+
+===
 link tag: member: without hash
 ===
 
@@ -66,6 +116,22 @@ link tag: member: without hash
 
 (document
   (description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (identifier))))))
+
+===
+link tag: markdown member: without hash
+===
+
+/// {@link member}
+
+---
+
+(document
+  (markdown_description
     (link_tag
       (tag_name)
       (reference

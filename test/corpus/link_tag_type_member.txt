@@ -29,6 +29,34 @@ link tag: type + member + label
       (description))))
 
 ===
+link tag: markdown type + member + label
+===
+
+/// {@link java.lang.System#getProperty(String key) label}
+
+---
+
+(document
+  (markdown_description
+    (link_tag
+      (tag_name)
+      (reference
+        (type
+          (identifier)
+          (identifier)
+          (identifier))
+        (member
+          (method
+            (identifier)
+              (parameters
+                (parameter
+                  (parameter_type
+                    (type
+                      (identifier)))
+                    (identifier))))))
+      (description))))
+
+===
 link tag: type + member
 ===
 
@@ -40,6 +68,33 @@ link tag: type + member
 
 (document
   (description
+    (link_tag
+      (tag_name)
+      (reference
+        (type
+          (identifier)
+          (identifier)
+          (identifier))
+        (member
+          (method
+            (identifier)
+              (parameters
+                (parameter
+                  (parameter_type
+                    (type
+                      (identifier)))
+                    (identifier)))))))))
+
+===
+link tag: markdown type + member
+===
+
+/// {@link java.lang.System#getProperty(String key)}
+
+---
+
+(document
+  (markdown_description
     (link_tag
       (tag_name)
       (reference

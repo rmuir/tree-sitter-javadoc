@@ -17,6 +17,22 @@ link tag: fragment + label
       (description))))
 
 ===
+link tag: markdown fragment + label
+===
+
+/// {@link ##fragment label}
+
+---
+
+(document
+  (markdown_description
+    (link_tag
+      (tag_name)
+      (reference
+        (fragment))
+      (description))))
+
+===
 link tag: fragment
 ===
 
@@ -28,6 +44,21 @@ link tag: fragment
 
 (document
   (description
+    (link_tag
+      (tag_name)
+      (reference
+        (fragment)))))
+
+===
+link tag: markdown fragment
+===
+
+/// {@link ##fragment}
+
+---
+
+(document
+  (markdown_description
     (link_tag
       (tag_name)
       (reference

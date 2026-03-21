@@ -15,3 +15,19 @@ link tag: description with trailing space
       (reference
         (member
           (identifier))))))
+
+===
+link tag: markdown description with trailing space
+===
+
+/// {@link #member }
+
+---
+
+(document
+  (markdown_description
+    (link_tag
+      (tag_name)
+      (reference
+        (member
+          (identifier))))))

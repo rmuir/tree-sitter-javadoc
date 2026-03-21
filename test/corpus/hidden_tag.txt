@@ -11,3 +11,15 @@ hidden tag
 (document
   (hidden_tag
     (tag_name)))
+
+===
+hidden tag: markdown
+===
+
+/// @hidden
+
+---
+
+(document
+  (hidden_tag
+    (tag_name)))

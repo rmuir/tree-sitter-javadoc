@@ -17,12 +17,43 @@ see tag: member + label
     (description)))
 
 ===
+see tag: markdown member + label
+===
+
+/// @see #member label
+
+---
+
+(document
+  (see_tag
+    (tag_name)
+    (reference
+      (member
+        (identifier)))
+    (description)))
+
+===
 see tag: member
 ===
 
 /**
  * @see #member
  */
+
+---
+
+(document
+  (see_tag
+    (tag_name)
+    (reference
+      (member
+        (identifier)))))
+
+===
+see tag: markdown member
+===
+
+/// @see #member
 
 ---
 
@@ -52,12 +83,43 @@ see tag: member + label: without hash
     (description)))
 
 ===
+see tag: markdown member + label: without hash
+===
+
+/// @see member label
+
+---
+
+(document
+  (see_tag
+    (tag_name)
+    (reference
+      (member
+        (identifier)))
+    (description)))
+
+===
 see tag: member: without hash
 ===
 
 /**
  * @see member
  */
+
+---
+
+(document
+  (see_tag
+    (tag_name)
+    (reference
+      (member
+        (identifier)))))
+
+===
+see tag: markdown member: without hash
+===
+
+/// @see member
 
 ---
 

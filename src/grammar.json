@@ -56,27 +56,25 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "ALIAS",
-                      "content": {
-                        "type": "SYMBOL",
-                        "name": "description"
-                      },
-                      "named": true,
-                      "value": "markdown_description"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "block_tag"
-                    }
-                  ]
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "description"
+                  },
+                  "named": true,
+                  "value": "markdown_description"
                 },
                 {
                   "type": "BLANK"
                 }
               ]
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "block_tag"
+              }
             }
           ]
         }
@@ -2098,6 +2096,23 @@
                     }
                   ]
                 }
+              }
+            ]
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "\\n"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[ \\t]*"
+              },
+              {
+                "type": "STRING",
+                "value": "///"
               }
             ]
           },

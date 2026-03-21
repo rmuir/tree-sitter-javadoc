@@ -20,12 +20,49 @@ see tag: type + fragment + label
     (description)))
 
 ===
+see tag: markdown type + fragment + label
+===
+
+/// @see java.lang.System##fragment label
+
+---
+
+(document
+  (see_tag
+    (tag_name)
+    (reference
+      (type
+        (identifier)
+        (identifier)
+        (identifier))
+      (fragment))
+    (description)))
+
+===
 see tag: type + fragment
 ===
 
 /**
  * @see java.lang.System##fragment
  */
+
+---
+
+(document
+  (see_tag
+    (tag_name)
+    (reference
+      (type
+        (identifier)
+        (identifier)
+        (identifier))
+      (fragment))))
+
+===
+see tag: markdown type + fragment
+===
+
+/// @see java.lang.System##fragment
 
 ---
 

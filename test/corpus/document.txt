@@ -10,6 +10,18 @@ document: single-line
   (markdown_description))
 
 ===
+document: multi-line markdown
+===
+
+/// test
+/// this
+
+---
+
+(document
+  (markdown_description))
+
+===
 document: multi-line
 ===
 
@@ -58,6 +70,21 @@ document: multi-line in disguise w/ block tag
 
 (document
   (description)
+  (deprecated_tag
+    (tag_name)
+    (description)))
+
+===
+document: multi-line markdown w/ block tag
+===
+
+/// test
+/// @deprecated problem
+
+---
+
+(document
+  (markdown_description)
   (deprecated_tag
     (tag_name)
     (description)))

@@ -14,12 +14,37 @@ author tag
     (description)))
 
 ===
+author tag: markdown
+===
+
+/// @author test
+
+---
+
+(document
+  (author_tag
+    (tag_name)
+    (description)))
+
+===
 author tag: missing description
 ===
 
 /**
  * @author
  */
+
+---
+
+(document
+  (author_tag
+    (tag_name)))
+
+===
+author tag: markdown missing description
+===
+
+/// @author
 
 ---
 

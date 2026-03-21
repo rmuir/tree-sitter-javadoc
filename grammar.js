@@ -23,6 +23,8 @@ module.exports = grammar({
     token(choice(
       // Skip over stars at the beginnings of lines
       seq(/\n/, /[ \t]*/, repeat(seq('*', /[ \t]*/))),
+      // Behave the same with markdown blocks
+      seq(/\n/, /[ \t]*/, '///'),
       /\s/,
     )),
   ],
@@ -42,7 +44,8 @@ module.exports = grammar({
       ),
       seq(
         $._singleline_begin,
-        optional(choice(alias($.description, $.markdown_description), $.block_tag)),
+        optional(alias($.description, $.markdown_description)),
+        repeat($.block_tag),
       ),
     ),
 

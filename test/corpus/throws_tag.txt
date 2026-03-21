@@ -16,12 +16,43 @@ throws tag
     (description)))
 
 ===
+throws tag: markdown
+===
+
+/// @throws Type test
+
+---
+
+(document
+  (throws_tag
+    (tag_name)
+    (type
+      (identifier))
+    (description)))
+
+===
 throws tag: qualified type
 ===
 
 /**
  * @throws foo.Type test
  */
+
+---
+
+(document
+  (throws_tag
+    (tag_name)
+    (type
+      (identifier)
+      (identifier))
+    (description)))
+
+===
+throws tag: markdown qualified type
+===
+
+/// @throws foo.Type test
 
 ---
 
@@ -49,4 +80,16 @@ throws tag: missing description
     (type
       (identifier))))
 
+===
+throws tag: markdown missing description
+===
 
+/// @throws Type
+
+---
+
+(document
+  (throws_tag
+    (tag_name)
+    (type
+      (identifier))))
