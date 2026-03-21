@@ -23,8 +23,6 @@ module.exports = grammar({
     token(choice(
       // Skip over stars at the beginnings of lines
       seq(/\n/, /[ \t]*/, repeat(seq('*', /[ \t]*/))),
-      // Behave the same with markdown blocks
-      seq(/\n/, /[ \t]*/, '///'),
       /\s/,
     )),
   ],
@@ -43,9 +41,9 @@ module.exports = grammar({
         optional($._multiline_end),
       ),
       seq(
-        $._singleline_begin,
-        optional(alias($.description, $.markdown_description)),
-        repeat($.block_tag),
+        repeat(seq($._singleline_begin, alias($.description, $.markdown_description))),
+        repeat(seq($._singleline_begin, $.block_tag)),
+        optional($._singleline_begin),
       ),
     ),
 
@@ -408,12 +406,13 @@ module.exports = grammar({
     literal: _ => /[^}]+/,
     code: $ => $._text,
 
-    _text: _ => token(prec(-1, /[^*{}@\s][^*{}\n]*([^*/{}\n][^*{}\n]*\*+)*/)),
+    _text: _ => token(prec(-1, /[^*{}@\s][^*{}\n]*([^*/{}\n][^*{}\n]*\*+)*(\n[ \t]*\/\/\/[ \t]*[^*{}@\s][^*{}\n]*([^*/{}\n][^*{}\n]*\*+)*)*/)),
 
     _multiline_begin: _ => '/**',
 
     _multiline_end: _ => '*/',
 
-    _singleline_begin: _ => '///',
+    // absorb additional blank `///` lines, it simplifies parsing without modifying extras
+    _singleline_begin: _ => token(seq('///', repeat(seq(/\n[ \t]*/, '///')))),
   },
 });

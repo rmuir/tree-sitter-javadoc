@@ -88,3 +88,65 @@ document: multi-line markdown w/ block tag
   (deprecated_tag
     (tag_name)
     (description)))
+
+===
+document: multi-line markdown w/ blank line and block tag
+===
+
+/// test
+///
+/// @deprecated problem
+
+---
+
+(document
+  (markdown_description)
+  (deprecated_tag
+    (tag_name)
+    (description)))
+
+===
+document: multi-line w/ two block tags
+===
+
+/**
+ * test
+ * @throws foo.Type test
+ * @deprecated problem
+ */
+
+---
+
+(document
+  (description)
+  (throws_tag
+    (tag_name)
+      (type
+        (identifier)
+        (identifier))
+      (description))
+  (deprecated_tag
+    (tag_name)
+    (description)))
+
+===
+document: multi-line markdown w/ two block tags
+===
+
+/// test
+/// @throws foo.Type test
+/// @deprecated problem
+
+---
+
+(document
+  (markdown_description)
+  (throws_tag
+    (tag_name)
+      (type
+        (identifier)
+        (identifier))
+      (description))
+  (deprecated_tag
+    (tag_name)
+    (description)))
