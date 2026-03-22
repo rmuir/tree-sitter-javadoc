@@ -10,6 +10,19 @@ document: single-line
   (markdown_description))
 
 ===
+document: single-line markdown with newlines
+===
+
+///
+/// this
+///
+
+---
+
+(document
+  (markdown_description))
+
+===
 document: multi-line markdown
 ===
 
@@ -96,6 +109,23 @@ document: multi-line markdown w/ blank line and block tag
 /// test
 ///
 /// @deprecated problem
+
+---
+
+(document
+  (markdown_description)
+  (deprecated_tag
+    (tag_name)
+    (description)))
+
+===
+document: multi-line markdown w/ blank lines around block tag
+===
+
+/// test
+///
+/// @deprecated problem
+///
 
 ---
 
