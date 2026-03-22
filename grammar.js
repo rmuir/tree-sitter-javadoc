@@ -32,6 +32,10 @@ module.exports = grammar({
     $.block_tag,
   ],
 
+  conflicts: $ => [
+    [$.document],
+  ],
+
   rules: {
     document: $ => choice(
       seq(
@@ -41,7 +45,11 @@ module.exports = grammar({
         optional($._multiline_end),
       ),
       seq(
-        repeat(seq($._singleline_begin, alias($.description, $.markdown_description))),
+        repeat(choice(
+          seq($._singleline_begin, alias($.description, $.markdown_description)),
+          seq($._singleline_begin, $.markdown_fenced_code_block),
+          $._singleline_begin,
+        )),
         repeat(seq($._singleline_begin, $.block_tag)),
         optional($._singleline_begin),
       ),
@@ -407,6 +415,16 @@ module.exports = grammar({
     code: $ => $._text,
 
     _text: _ => token(prec(-1, /[^*{}@\s][^*{}\n]*([^*/{}\n][^*{}\n]*\*+)*(\n[ \t]*\/\/\/[ \t]*[^*{}@\s][^*{}\n]*([^*/{}\n][^*{}\n]*\*+)*)*/)),
+
+    // matches an entire fenced code block as a single token, so @ signs inside aren't parsed as tags
+    // purpose is not for injections or highlighting, use a sibling markdown parser for that.
+    markdown_fenced_code_block: _ => token(seq(
+      /`{3,}/,
+      /[^\n]*/,
+      repeat(seq(/\n[ \t]*\/\/\/[ \t]*/, /[^\n]*/)),
+      /\n[ \t]*\/\/\/[ \t]*/,
+      /`{3,}/,
+    )),
 
     _multiline_begin: _ => '/**',
 

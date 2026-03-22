@@ -51,20 +51,42 @@
             {
               "type": "REPEAT",
               "content": {
-                "type": "SEQ",
+                "type": "CHOICE",
                 "members": [
+                  {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "_singleline_begin"
+                      },
+                      {
+                        "type": "ALIAS",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "description"
+                        },
+                        "named": true,
+                        "value": "markdown_description"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "_singleline_begin"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "markdown_fenced_code_block"
+                      }
+                    ]
+                  },
                   {
                     "type": "SYMBOL",
                     "name": "_singleline_begin"
-                  },
-                  {
-                    "type": "ALIAS",
-                    "content": {
-                      "type": "SYMBOL",
-                      "name": "description"
-                    },
-                    "named": true,
-                    "value": "markdown_description"
                   }
                 ]
               }
@@ -2072,6 +2094,46 @@
         }
       }
     },
+    "markdown_fenced_code_block": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "`{3,}"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[^\\n]*"
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "PATTERN",
+                  "value": "\\n[ \\t]*\\/\\/\\/[ \\t]*"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "[^\\n]*"
+                }
+              ]
+            }
+          },
+          {
+            "type": "PATTERN",
+            "value": "\\n[ \\t]*\\/\\/\\/[ \\t]*"
+          },
+          {
+            "type": "PATTERN",
+            "value": "`{3,}"
+          }
+        ]
+      }
+    },
     "_multiline_begin": {
       "type": "STRING",
       "value": "/**"
@@ -2152,7 +2214,11 @@
       }
     }
   ],
-  "conflicts": [],
+  "conflicts": [
+    [
+      "document"
+    ]
+  ],
   "precedences": [],
   "externals": [
     {
