@@ -14,6 +14,19 @@ inheritDoc tag
       (tag_name))))
 
 ===
+inheritDoc tag: markdown
+===
+
+/// {@inheritDoc}
+
+---
+
+(document
+  (markdown_description
+    (inherit_doc_tag
+      (tag_name))))
+
+===
 inheritDoc tag: supertype
 ===
 
@@ -31,6 +44,21 @@ inheritDoc tag: supertype
         (identifier)))))
 
 ===
+inheritDoc tag: markdown supertype
+===
+
+/// {@inheritDoc Type}
+
+---
+
+(document
+  (markdown_description
+    (inherit_doc_tag
+      (tag_name)
+      (type
+        (identifier)))))
+
+===
 inheritDoc tag: qualified supertype
 ===
 
@@ -42,6 +70,22 @@ inheritDoc tag: qualified supertype
 
 (document
   (description
+    (inherit_doc_tag
+      (tag_name)
+      (type
+        (identifier)
+        (identifier)))))
+
+===
+inheritDoc tag: markdown qualified supertype
+===
+
+/// {@inheritDoc foo.Type}
+
+---
+
+(document
+  (markdown_description
     (inherit_doc_tag
       (tag_name)
       (type

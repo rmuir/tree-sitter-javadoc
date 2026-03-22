@@ -15,6 +15,20 @@ summary tag
       (description))))
 
 ===
+summary tag: markdown
+===
+
+/// {@summary some text}
+
+---
+
+(document
+  (markdown_description
+    (summary_tag
+      (tag_name)
+      (description))))
+
+===
 summary tag: missing summary
 ===
 
@@ -26,5 +40,18 @@ summary tag: missing summary
 
 (document
   (description
+    (summary_tag
+      (tag_name))))
+
+===
+summary tag: markdown missing summary
+===
+
+/// {@summary}
+
+---
+
+(document
+  (markdown_description
     (summary_tag
       (tag_name))))

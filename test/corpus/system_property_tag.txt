@@ -17,6 +17,22 @@ systemProperty tag
         (identifier)))))
 
 ===
+systemProperty tag: markdown
+===
+
+/// {@systemProperty somePrefix.property}
+
+---
+
+(document
+  (markdown_description
+    (system_property_tag
+      (tag_name)
+      (system_property
+        (identifier)
+        (identifier)))))
+
+===
 systemProperty tag: missing system property
 ===
 
@@ -28,5 +44,18 @@ systemProperty tag: missing system property
 
 (document
   (description
+    (system_property_tag
+      (tag_name))))
+
+===
+systemProperty tag: markdown missing system property
+===
+
+/// {@systemProperty}
+
+---
+
+(document
+  (markdown_description
     (system_property_tag
       (tag_name))))

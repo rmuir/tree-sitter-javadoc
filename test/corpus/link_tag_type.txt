@@ -20,6 +20,25 @@ link tag: type + label
       (description))))
 
 ===
+link tag: markdown type + label
+===
+
+/// {@link java.lang.System label}
+
+---
+
+(document
+  (markdown_description
+    (link_tag
+      (tag_name)
+      (reference
+        (type
+          (identifier)
+          (identifier)
+          (identifier)))
+      (description))))
+
+===
 link tag: type
 ===
 
@@ -31,6 +50,24 @@ link tag: type
 
 (document
   (description
+    (link_tag
+      (tag_name)
+      (reference
+        (type
+          (identifier)
+          (identifier)
+          (identifier))))))
+
+===
+link tag: markdown type
+===
+
+/// {@link java.lang.System}
+
+---
+
+(document
+  (markdown_description
     (link_tag
       (tag_name)
       (reference

@@ -12,3 +12,16 @@ docRoot tag
   (description
     (doc_root_tag
       (tag_name))))
+
+===
+docRoot tag: markdown
+===
+
+/// {@docRoot}
+
+---
+
+(document
+  (markdown_description
+    (doc_root_tag
+      (tag_name))))

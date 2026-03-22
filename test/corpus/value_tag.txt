@@ -14,6 +14,19 @@ value tag
       (tag_name))))
 
 ===
+value tag: markdown
+===
+
+/// {@value}
+
+---
+
+(document
+  (markdown_description
+    (value_tag
+      (tag_name))))
+
+===
 value tag: reference
 ===
 
@@ -32,6 +45,22 @@ value tag: reference
           (identifier))))))
 
 ===
+value tag: markdown reference
+===
+
+/// {@value #FOO_BAR}
+
+---
+
+(document
+  (markdown_description
+    (value_tag
+      (tag_name)
+      (reference
+        (member
+          (identifier))))))
+
+===
 value tag: qualified reference
 ===
 
@@ -43,6 +72,24 @@ value tag: qualified reference
 
 (document
   (description
+    (value_tag
+      (tag_name)
+      (reference
+        (type
+          (identifier))
+        (member
+          (identifier))))))
+
+===
+value tag: markdown qualified reference
+===
+
+/// {@value Foo#FOO_BAR}
+
+---
+
+(document
+  (markdown_description
     (value_tag
       (tag_name)
       (reference
@@ -71,6 +118,23 @@ value tag: format string
           (identifier))))))
 
 ===
+value tag: markdown format string
+===
+
+/// {@value "s%2f" #FOO_BAR}
+
+---
+
+(document
+  (markdown_description
+    (value_tag
+      (tag_name)
+      (literal_format_string)
+      (reference
+        (member
+          (identifier))))))
+
+===
 value tag: bare format string
 ===
 
@@ -82,6 +146,23 @@ value tag: bare format string
 
 (document
   (description
+    (value_tag
+      (tag_name)
+      (bare_format_string)
+      (reference
+        (member
+          (identifier))))))
+
+===
+value tag: markdown bare format string
+===
+
+/// {@value %2f #FOO_BAR}
+
+---
+
+(document
+  (markdown_description
     (value_tag
       (tag_name)
       (bare_format_string)

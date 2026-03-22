@@ -14,6 +14,19 @@ return tag
     (description)))
 
 ===
+return tag: markdown
+===
+
+/// @return My retval
+
+---
+
+(document
+  (return_tag
+    (tag_name)
+    (description)))
+
+===
 return tag: inline
 ===
 
@@ -30,12 +43,38 @@ return tag: inline
       (description))))
 
 ===
+return tag: markdown inline
+===
+
+/// {@return My retval}
+
+---
+
+(document
+  (markdown_description
+    (return_tag
+      (tag_name)
+      (description))))
+
+===
 return tag: missing description
 ===
 
 /**
  * @return
  */
+
+---
+
+(document
+  (return_tag
+    (tag_name)))
+
+===
+return tag: markdown missing description
+===
+
+/// @return
 
 ---
 
@@ -59,12 +98,40 @@ return tag: inline, missing description
       (tag_name))))
 
 ===
+return tag: markdown inline, missing description
+===
+
+/// {@return}
+
+---
+
+(document
+  (markdown_description
+    (return_tag
+      (tag_name))))
+
+===
 return tag: inheritdoc
 ===
 
 /**
  * @return {@inheritDoc}
  */
+
+---
+
+(document
+  (return_tag
+    (tag_name)
+    (description
+      (inherit_doc_tag
+        (tag_name)))))
+
+===
+return tag: markdown inheritdoc
+===
+
+/// @return {@inheritDoc}
 
 ---
 

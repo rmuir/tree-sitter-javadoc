@@ -13,3 +13,17 @@ see tag: string
     (tag_name)
     (string_literal
       (quoted_value))))
+
+===
+see tag: markdown string
+===
+
+/// @see "string"
+
+---
+
+(document
+  (see_tag
+    (tag_name)
+    (string_literal
+      (quoted_value))))

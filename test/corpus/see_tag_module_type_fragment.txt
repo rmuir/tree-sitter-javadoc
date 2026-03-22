@@ -23,12 +23,55 @@ see tag: module + type + fragment + label
     (description)))
 
 ===
+see tag: markdown module + type + fragment + label
+===
+
+/// @see java.base/java.lang.System##fragment label
+
+---
+
+(document
+  (see_tag
+    (tag_name)
+    (reference
+      (module
+        (identifier)
+        (identifier))
+      (type
+        (identifier)
+        (identifier)
+        (identifier))
+      (fragment))
+    (description)))
+
+===
 see tag: module + type + fragment
 ===
 
 /**
  * @see java.base/java.lang.System##fragment
  */
+
+---
+
+(document
+  (see_tag
+    (tag_name)
+    (reference
+      (module
+        (identifier)
+        (identifier))
+      (type
+        (identifier)
+        (identifier)
+        (identifier))
+      (fragment))))
+
+===
+see tag: markdown module + type + fragment
+===
+
+/// @see java.base/java.lang.System##fragment
 
 ---
 

@@ -14,12 +14,37 @@ serial tag
     (description)))
 
 ===
+serial tag: markdown
+===
+
+/// @serial My description
+
+---
+
+(document
+  (serial_tag
+    (tag_name)
+    (description)))
+
+===
 serial tag: include
 ===
 
 /**
  * @serial include
  */
+
+---
+
+(document
+  (serial_tag
+    (tag_name)))
+
+===
+serial tag: markdown include
+===
+
+/// @serial include
 
 ---
 
@@ -40,4 +65,15 @@ serial tag: exclude
 (document
   (serial_tag
     (tag_name)))
-    
+
+===
+serial tag: markdown exclude
+===
+
+/// @serial exclude
+
+---
+
+(document
+  (serial_tag
+    (tag_name)))

@@ -24,6 +24,29 @@ link tag: module + type + fragment + label
       (description))))
 
 ===
+link tag: markdown module + type + fragment + label
+===
+
+/// {@link java.base/java.lang.System##fragment label}
+
+---
+
+(document
+  (markdown_description
+    (link_tag
+      (tag_name)
+      (reference
+        (module
+          (identifier)
+          (identifier))
+        (type
+          (identifier)
+          (identifier)
+          (identifier))
+        (fragment))
+      (description))))
+
+===
 link tag: module + type + fragment
 ===
 
@@ -35,6 +58,28 @@ link tag: module + type + fragment
 
 (document
   (description
+    (link_tag
+      (tag_name)
+      (reference
+        (module
+          (identifier)
+          (identifier))
+        (type
+          (identifier)
+          (identifier)
+          (identifier))
+        (fragment)))))
+
+===
+link tag: markdown module + type + fragment
+===
+
+/// {@link java.base/java.lang.System##fragment}
+
+---
+
+(document
+  (markdown_description
     (link_tag
       (tag_name)
       (reference

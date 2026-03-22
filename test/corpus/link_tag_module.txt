@@ -19,6 +19,24 @@ link tag: module + label
       (description))))
 
 ===
+link tag: markdown module + label
+===
+
+/// {@link java.base/ label}
+
+---
+
+(document
+  (markdown_description
+    (link_tag
+      (tag_name)
+      (reference
+        (module
+          (identifier)
+          (identifier)))
+      (description))))
+
+===
 link tag: module
 ===
 
@@ -30,6 +48,23 @@ link tag: module
 
 (document
   (description
+    (link_tag
+      (tag_name)
+      (reference
+        (module
+          (identifier)
+          (identifier))))))
+
+===
+link tag: markdown module
+===
+
+/// {@link java.base/}
+
+---
+
+(document
+  (markdown_description
     (link_tag
       (tag_name)
       (reference

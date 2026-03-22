@@ -16,12 +16,41 @@ uses tag
     (description)))
 
 ===
+uses tag: markdown
+===
+
+/// @uses Service test
+
+---
+
+(document
+  (uses_tag
+    (tag_name)
+    (type
+      (identifier))
+    (description)))
+
+===
 uses tag: missing description
 ===
 
 /**
  * @uses Service
  */
+
+---
+
+(document
+  (uses_tag
+    (tag_name)
+    (type
+      (identifier))))
+
+===
+uses tag: markdown missing description
+===
+
+/// @uses Service
 
 ---
 

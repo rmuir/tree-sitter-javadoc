@@ -14,12 +14,37 @@ serialData tag
     (description)))
 
 ===
+serialData tag: markdown
+===
+
+/// @serialData My description
+
+---
+
+(document
+  (serial_data_tag
+    (tag_name)
+    (description)))
+
+===
 serialData tag: missing description
 ===
 
 /**
  * @serialData
  */
+
+---
+
+(document
+  (serial_data_tag
+    (tag_name)))
+
+===
+serialData tag: markdown missing description
+===
+
+/// @serialData
 
 ---
 

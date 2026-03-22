@@ -10,6 +10,31 @@ document: single-line
   (markdown_description))
 
 ===
+document: single-line markdown with newlines
+===
+
+///
+/// this
+///
+
+---
+
+(document
+  (markdown_description))
+
+===
+document: multi-line markdown
+===
+
+/// test
+/// this
+
+---
+
+(document
+  (markdown_description))
+
+===
 document: multi-line
 ===
 
@@ -61,3 +86,167 @@ document: multi-line in disguise w/ block tag
   (deprecated_tag
     (tag_name)
     (description)))
+
+===
+document: multi-line markdown w/ block tag
+===
+
+/// test
+/// @deprecated problem
+
+---
+
+(document
+  (markdown_description)
+  (deprecated_tag
+    (tag_name)
+    (description)))
+
+===
+document: multi-line markdown w/ blank line and block tag
+===
+
+/// test
+///
+/// @deprecated problem
+
+---
+
+(document
+  (markdown_description)
+  (deprecated_tag
+    (tag_name)
+    (description)))
+
+===
+document: multi-line markdown w/ blank lines around block tag
+===
+
+/// test
+///
+/// @deprecated problem
+///
+
+---
+
+(document
+  (markdown_description)
+  (deprecated_tag
+    (tag_name)
+    (description)))
+
+===
+document: multi-line w/ two block tags
+===
+
+/**
+ * test
+ * @throws foo.Type test
+ * @deprecated problem
+ */
+
+---
+
+(document
+  (description)
+  (throws_tag
+    (tag_name)
+      (type
+        (identifier)
+        (identifier))
+      (description))
+  (deprecated_tag
+    (tag_name)
+    (description)))
+
+===
+document: multi-line markdown w/ two block tags
+===
+
+/// test
+/// @throws foo.Type test
+/// @deprecated problem
+
+---
+
+(document
+  (markdown_description)
+  (throws_tag
+    (tag_name)
+      (type
+        (identifier)
+        (identifier))
+      (description))
+  (deprecated_tag
+    (tag_name)
+    (description)))
+
+===
+document: markdown fenced code block
+===
+
+/// ```java
+/// @Test
+/// public void foo() {}
+/// ```
+
+---
+
+(document
+  (markdown_fenced_code_block))
+
+===
+document: markdown fenced code block with description
+===
+
+/// some description
+///
+/// ```java
+/// @Test
+/// public void foo() {}
+/// ```
+
+---
+
+(document
+  (markdown_description)
+  (markdown_fenced_code_block))
+
+===
+document: markdown fenced code block with block tags
+===
+
+/// some description
+///
+/// ```java
+/// @Test
+/// public void foo() {}
+/// ```
+///
+/// @see Foo#bar()
+
+---
+
+(document
+  (markdown_description)
+  (markdown_fenced_code_block)
+  (see_tag
+    (tag_name)
+    (reference
+      (type
+        (identifier))
+      (member
+        (method
+          (identifier))))))
+
+===
+document: markdown empty fenced code block
+===
+
+/// ```
+/// ```
+
+---
+
+(document
+  (markdown_fenced_code_block))

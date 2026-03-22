@@ -15,12 +15,39 @@ spec tag
     (description)))
 
 ===
+spec tag: markdown
+===
+
+/// @spec https://example.com Example Spec
+
+---
+
+(document
+  (spec_tag
+    (tag_name)
+    (url)
+    (description)))
+
+===
 spec tag: missing title
 ===
 
 /**
  * @spec https://example.com
  */
+
+---
+
+(document
+  (spec_tag
+    (tag_name)
+    (url)))
+
+===
+spec tag: markdown missing title
+===
+
+/// @spec https://example.com
 
 ---
 
