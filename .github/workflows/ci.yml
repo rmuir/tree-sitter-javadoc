@@ -58,7 +58,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Set up tree-sitter
-        uses: tree-sitter/setup-action/cli@eeb902ac2f1be576edc296309872cf476a209b7f # v2
+        uses: tree-sitter/setup-action/cli@1868a545ffb91bdc221d14a168b5b6d8de4a28b3 # v2
         with:
           tree-sitter-ref: ${{ env.TREE_SITTER_VERSION }}
       - name: Run parser and binding tests
@@ -134,7 +134,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Set up tree-sitter
-        uses: tree-sitter/setup-action/cli@eeb902ac2f1be576edc296309872cf476a209b7f # master
+        uses: tree-sitter/setup-action/cli@1868a545ffb91bdc221d14a168b5b6d8de4a28b3 # master
         with:
           tree-sitter-ref: ${{ env.TREE_SITTER_VERSION }}
       - name: Build parser
