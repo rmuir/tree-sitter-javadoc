@@ -14,7 +14,7 @@ requires-python = ">=3.10"
 license.text = "MIT"
 readme = "README.md"
 dependencies = [
-  "tree-sitter>=0.25",
+  "tree-sitter>=0.26.0",
   "tree-sitter-javadoc",
   "tree-sitter-java>=0.23.5",
 ]
@@ -28,8 +28,8 @@ Homepage = "https://github.com/rmuir/tree-sitter-javadoc"
 
 [dependency-groups]
 dev = [
-  "ruff==0.15.20",
-  "ty==0.0.56",
+  "ruff==0.16.0",
+  "ty==0.0.63",
 ]
 
 [build-system]
